@@ -1,0 +1,25 @@
+<component>
+	<previews>
+		<preview name="default" width="240" style_pad_all="20" />
+	</previews>
+
+	<api>
+		<prop name="subject" type="subject" default="subject_brightness" help="Int subject the slider reads and writes; drag it to change the subject" />
+		<prop name="min"     type="int"     default="0"    help="Lowest value" />
+		<prop name="max"     type="int"     default="100"  help="Highest value" />
+		<prop name="color"   type="color"   default="#color_accent" help="Filled indicator and knob color" />
+	</api>
+
+	<!-- Neutral track on the main part; the fill + knob take $color. -->
+	<styles>
+		<style name="style_slider_track" bg_color="#color_track" bg_opa="35%" />
+	</styles>
+
+	<!-- Two-way bound to $subject. Set width at the use-site (e.g.
+	     width="100%") to stretch it. -->
+	<view extends="lv_slider" width="200"
+	      min_value="$min" max_value="$max" bind_value="$subject"
+	      style_bg_color-indicator="$color" style_bg_color-knob="$color">
+		<style name="style_slider_track" />
+	</view>
+</component>

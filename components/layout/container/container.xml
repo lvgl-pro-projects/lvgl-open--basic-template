@@ -1,0 +1,18 @@
+<component>
+	<!-- A transparent, theme-free box for grouping and arranging children
+	     with flexbox. It extends `base_box` (where <remove_style_all/>
+	     runs), so these pad/gap/flow/grow locals are applied AFTER the theme
+	     is stripped and therefore stick. Never set text_color here: leave it
+	     to inherit the screen's light/dark color so dark mode recolors text
+	     for free. Use `panel` instead when you want a visible card surface. -->
+	<api>
+		<prop name="pad"  type="int"           default="0"      help="Inner padding on all sides" />
+		<prop name="gap"  type="int"           default="0"      help="Space between children along the flow direction" />
+		<prop name="flow" type="enum:lv_flex_flow" default="column" help="Child layout direction: column or row" />
+		<prop name="grow" type="int"           default="NULL"   help="flex_grow when this box itself sits in a flex parent; NULL = natural size" />
+	</api>
+
+	<view extends="base_box" flex_grow="$grow"
+	      style_pad_all="$pad" style_pad_row="$gap" style_pad_column="$gap"
+	      flex_flow="$flow" />
+</component>

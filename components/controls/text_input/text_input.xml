@@ -1,0 +1,18 @@
+<component>
+	<previews>
+		<preview name="default" width="260" style_pad_all="10" />
+	</previews>
+
+	<api>
+		<prop name="text"        type="string" default=""      help="Initial text" />
+		<prop name="placeholder" type="string" default="Type..." help="Greyed-out hint shown while empty" />
+		<prop name="password"    type="bool"   default="false" help="Mask the characters (password field)" />
+	</api>
+
+	<!-- Single-line text field. Connect a keyboard / read the text from C
+	     via the widget's name set at the use-site. Width is set here to a
+	     sensible default; override at the use-site. -->
+	<view extends="lv_textarea" one_line="true" width="260"
+	      text="$text" placeholder_text="$placeholder" password_mode="$password"
+	      style_radius="#radius" />
+</component>

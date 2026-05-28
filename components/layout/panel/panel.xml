@@ -1,0 +1,32 @@
+<component>
+	<previews>
+		<preview name="light" width="240" height="140" />
+		<preview name="dark" width="240" height="140" style_bg_color="#color_dark_bg" />
+	</previews>
+
+	<api>
+		<prop name="pad" type="int" default="#space_md" help="Inner padding on all sides" />
+		<prop name="gap" type="int" default="#space_sm" help="Space between children along the flow direction" />
+		<prop name="flow" type="enum:lv_flex_flow" default="column" help="Child layout direction: column or row" />
+		<prop name="radius" type="int" default="#radius" help="Corner radius" />
+		<prop name="grow" type="int" default="NULL" help="flex_grow when placed in a flex row; NULL = natural size" />
+	</api>
+
+	<!-- Geometry only. The surface (bg + border) comes from globals
+	     (style_panel_light/dark) and is swapped by subject_theme_dark.
+	     No text_color here so panel text inherits from the screen. -->
+	<styles>
+		<style name="style_panel" border_width="#border_width" />
+	</styles>
+
+	<!-- extends container => remove_style_all already ran there, so these
+	     local style_* / $prop attributes are safe (applied afterwards).
+	     pad/gap/flow flow straight through to the container. The optional
+	     $bg_color local sits on top of the theme styles, so when it is set
+	     it wins; when NULL it is ignored and the theme color shows. -->
+	<view extends="container" pad="$pad" gap="$gap" flow="$flow" grow="$grow" style_radius="$radius">
+		<style name="style_panel_light" />
+		<bind_style name="style_panel_dark" subject="subject_theme_dark" ref_value="1" />
+		<style name="style_panel" />
+	</view>
+</component>

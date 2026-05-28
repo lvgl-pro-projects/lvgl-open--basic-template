@@ -1,0 +1,30 @@
+<component>
+	<previews>
+		<preview name="default" width="220" height="220" style_pad_all="20" />
+	</previews>
+
+	<api>
+		<prop name="subject" type="subject" default="subject_brightness" help="Int subject the arc reads and writes; drag the arc to change it" />
+		<prop name="min"     type="int"     default="0"    help="Lowest value" />
+		<prop name="max"     type="int"     default="100"  help="Highest value" />
+		<prop name="color"   type="color"   default="#color_accent" help="Indicator and knob color" />
+	</api>
+
+	<!-- Static parts of the arc; the parametrized color goes on as locals. -->
+	<styles>
+		<style name="style_arc_track" arc_width="14" arc_color="#color_track" arc_opa="35%" />
+		<style name="style_arc_ind"   arc_width="14" arc_rounded="true" />
+		<style name="style_arc_knob"  pad_all="6" />
+	</styles>
+
+	<!-- The arc reads and writes $subject (drag to change it); $color drives
+	     the indicator + knob. Add a centered <lv_label bind_text="..."> child
+	     at the use-site for a readout. -->
+	<view extends="lv_arc" width="180" height="180"
+	      min_value="$min" max_value="$max" bind_value="$subject"
+	      style_arc_color-indicator="$color" style_bg_color-knob="$color">
+		<style name="style_arc_track" />
+		<style name="style_arc_ind"  selector="indicator" />
+		<style name="style_arc_knob" selector="knob" />
+	</view>
+</component>

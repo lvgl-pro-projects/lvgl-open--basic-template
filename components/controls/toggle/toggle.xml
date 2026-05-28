@@ -1,0 +1,16 @@
+<component>
+	<previews>
+		<preview name="default" width="120" style_pad_all="10" />
+	</previews>
+
+	<api>
+		<prop name="subject" type="subject" default="subject_theme_dark" help="Int (0/1) subject bound two-way to the switch" />
+		<prop name="color"   type="color"   default="#color_accent"      help="Track color when the switch is on" />
+	</api>
+
+	<!-- An on/off switch, two-way bound to a 0/1 subject: toggling it writes
+	     the subject and vice-versa. $color is the 'on' track (indicator part);
+	     the knob stays light for contrast. -->
+	<view extends="lv_switch" bind_checked="$subject"
+	      style_bg_color-indicator="$color" style_bg_color-knob="#color_accent_text" />
+</component>

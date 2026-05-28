@@ -1,0 +1,92 @@
+<!-- HOME: a permanent screen (kept in RAM so its state survives while
+     screen_settings is shown on top and destroyed afterwards). -->
+<screen permanent="true">
+	<!-- Intro animation: the content block slides up and fades in once the
+	     screen is loaded. Timelines live next to <view>. -->
+	<animations>
+		<timeline name="intro">
+			<animation target="content" prop="translate_y" start="30" end="0" duration="400" early_apply="true" />
+			<animation target="content" prop="opa" start="0" end="255" duration="400" delay="60" early_apply="true" />
+		</timeline>
+	</animations>
+
+	<!-- The screen root is the ONE place text_color + the default font are
+	     set (via the bound light/dark style). Every child below is a
+	     theme-free container/panel, so this inherits all the way down and
+	     flipping subject_theme_dark recolors the whole screen at once. -->
+	<view extends="lv_obj">
+		<style name="style_screen_light" />
+		<bind_style name="style_screen_dark" subject="subject_theme_dark" ref_value="1" />
+		<style name="style_scrollbar" selector="scrollbar" />
+
+		<play_timeline_event trigger="screen_load_start" timeline="intro" target="self" />
+
+		<!-- Named content block: the animation target + the page padding. -->
+		<container name="content" width="100%" height="100%" pad="#space_lg" gap="#space_lg">
+			<!-- Header: title + muted subtitle -->
+			<container width="100%" gap="#space_xs">
+				<h1 text="LVGL Open" />
+				<h5 text="XML project template" style_text_opa="60%" />
+			</container>
+
+			<!-- Two panels side by side, sharing the remaining height. -->
+			<container width="100%" flow="row" gap="#space_lg" grow="1">
+				<!-- Left: a value gauge bound to subject_brightness. The big
+				     readout is a raw lv_label (the heading components are
+				     static; live values need bind_text). -->
+				<panel grow="1" gap="#space_md">
+					<h4 text="Brightness" />
+					<container
+						width="100%"
+						height="content"
+						gap="#space_sm"
+						style_flex_main_place="center"
+						style_flex_cross_place="center"
+					>
+						<arc subject="subject_brightness" min="0" max="100">
+							<lv_label
+								bind_text="subject_brightness"
+								bind_text-fmt="%d%%"
+								style_text_font="font_h2"
+								align="center"
+							>
+								<style name="style_text_accent" />
+							</lv_label>
+						</arc>
+					</container>
+				</panel>
+
+				<!-- Right: controls that all drive the SAME subject, so moving
+				     any one updates the gauge on the left in real time. -->
+				<panel grow="1" gap="#space_lg">
+					<h4 text="Controls" />
+
+					<container width="100%" gap="#space_xs">
+						<h5 text="Slider" style_text_opa="60%" />
+						<slider subject="subject_brightness" min="0" max="100" width="100%" />
+					</container>
+
+					<container width="100%" gap="#space_xs">
+						<h5 text="Bar" style_text_opa="60%" />
+						<bar subject="subject_brightness" min="0" max="100" width="100%" />
+					</container>
+
+					<!-- Spacer pushes the button to the bottom of the panel -->
+					<container width="100%" grow="1" />
+
+					<!-- screen_create_event builds + loads the (non-permanent)
+					     settings screen with a slide-in animation. -->
+					<button text="Settings" width="100%">
+						<screen_create_event screen="screen_settings" anim_type="over_left" duration="350" />
+					</button>
+
+					<!-- screen_load_event switches to the permanent components
+					     showcase (window / list / popup). -->
+					<button text="Components" width="100%">
+						<screen_load_event screen="screen_components" anim_type="over_left" duration="350" />
+					</button>
+				</panel>
+			</container>
+		</container>
+	</view>
+</screen>

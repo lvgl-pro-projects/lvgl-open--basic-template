@@ -1,0 +1,14 @@
+<component>
+	<previews>
+		<preview name="default" width="400" />
+	</previews>
+
+	<api>
+		<prop name="text" type="string" default="Heading 5" help="Heading text" />
+	</api>
+
+	<!-- Smallest heading: Montserrat Medium 18. No text_color set, so it
+	     inherits the screen's bound light/dark color. Override per-use with
+	     style_text_color if needed. -->
+	<view extends="lv_label" text="$text" style_text_font="font_h5" />
+</component>

@@ -1,0 +1,47 @@
+<!-- SETTINGS: a non-permanent screen. It is built by screen_create_event
+     from home and destroyed when home is loaded back. -->
+<screen>
+	<!-- Root sets text_color + default font (bound light/dark); the
+	     theme-free children inherit it, so the dark-mode toggle below
+	     recolors all text. -->
+	<view extends="lv_obj">
+		<style name="style_screen_light" />
+		<bind_style name="style_screen_dark" subject="subject_theme_dark" ref_value="1" />
+		<style name="style_scrollbar" selector="scrollbar" />
+
+		<container name="content" width="100%" height="100%" pad="#space_lg" gap="#space_md" flow="column">
+			<h2 text="Settings" name="title" />
+
+			<!-- Appearance: a labeled row with the dark-mode toggle. Flipping
+			     it writes subject_theme_dark, which re-themes every screen. -->
+			<panel width="100%">
+				<h4 text="Appearance" />
+				<container width="100%" flow="row" gap="#space_md" style_flex_cross_place="center">
+					<text text="Dark mode" flex_grow="1" />
+					<toggle subject="subject_theme_dark" />
+				</container>
+			</panel>
+
+			<!-- Levels: a slider and a bar bound to subject_brightness. -->
+			<panel width="100%" gap="#space_md">
+				<h4 text="Brightness" />
+				<slider subject="subject_brightness" min="0" max="100" width="100%" />
+				<bar subject="subject_brightness" min="0" max="100" width="100%" />
+			</panel>
+
+			<!-- Text fields: single-line + multi-line. -->
+			<panel width="100%" gap="#space_sm">
+				<h4 text="Notes" />
+				<h5 text="Your name" style_text_opa="60%" />
+				<text_input placeholder="e.g. Ada Lovelace" width="100%" />
+				<h5 text="Message" style_text_opa="60%" />
+				<text_box placeholder="Write a short note..." width="100%" height="100" />
+			</panel>
+
+			<!-- screen_load_event returns to the permanent home screen. -->
+			<button text="Back" width="100%">
+				<screen_load_event screen="screen_home" duration="350" />
+			</button>
+		</container>
+	</view>
+</screen>

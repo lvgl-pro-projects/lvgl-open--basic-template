@@ -1,0 +1,46 @@
+<component>
+	<previews>
+		<preview name="default" width="360" height="240" />
+	</previews>
+
+	<api>
+		<prop name="title" type="string" default="Window" help="Title shown in the header" />
+		<!-- Header action-button area, right of the title. Fill it at the
+		     use-site with <window-buttons>...</window-buttons>. -->
+		<slot name="buttons" />
+		<!-- Main content area below the header. Fill it with
+		     <window-content>...</window-content>. -->
+		<slot name="content" />
+	</api>
+
+	<styles>
+		<!-- Header bar: vertically centered, with a divider line below it.
+		     Only sets properties the container doesn't set locally (no pad
+		     here — that comes from the container's pad prop, otherwise the
+		     local pad would override this sheet). -->
+		<style
+			name="style_header"
+			flex_cross_place="center"
+			border_side="bottom"
+			border_width="#border_width"
+			border_color="#color_track"
+			border_opa="40%"
+		/>
+	</styles>
+
+	<!-- A framed panel: a header (title + buttons slot) over a content slot.
+	     pad=0 / gap=0 so the header divider spans the full width; the header
+	     and content regions add their own padding. -->
+	<view extends="panel" pad="0" gap="0" width="100%" height="100%">
+		<!-- Header -->
+		<container width="100%" flow="row" pad="#space_md" gap="#space_sm">
+			<style name="style_header" />
+			<h4 text="$title" flex_grow="1" />
+			<!-- slot target -->
+			<container name="buttons" flow="row" gap="#space_xs" />
+		</container>
+
+		<!-- slot target -->
+		<container name="content" width="100%" grow="1" pad="#space_md" gap="#space_sm" />
+	</view>
+</component>

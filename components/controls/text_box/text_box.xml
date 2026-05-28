@@ -1,0 +1,17 @@
+<component>
+	<previews>
+		<preview name="default" width="260" height="140" style_pad_all="10" />
+	</previews>
+
+	<api>
+		<prop name="text"        type="string" default=""              help="Initial text" />
+		<prop name="placeholder" type="string" default="Write here..." help="Greyed-out hint shown while empty" />
+	</api>
+
+	<!-- Multi-line text field. Text wraps and the box scrolls when it
+	     overflows. Default size is set here; override width/height at the
+	     use-site. -->
+	<view extends="lv_textarea" width="260" height="120"
+	      text="$text" placeholder_text="$placeholder"
+	      style_radius="#radius" />
+</component>
