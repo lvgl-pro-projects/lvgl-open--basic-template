@@ -71,9 +71,6 @@
 						<bar subject="subject_brightness" min="0" max="100" width="100%" />
 					</container>
 
-					<!-- Spacer pushes the button to the bottom of the panel -->
-					<container width="100%" grow="1" />
-
 					<!-- screen_create_event builds + loads the (non-permanent)
 					     settings screen with a slide-in animation. -->
 					<button text="Settings" width="100%">

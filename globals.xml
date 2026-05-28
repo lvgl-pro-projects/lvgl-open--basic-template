@@ -16,32 +16,91 @@
 	     edit here re-tunes the whole UI. -->
 	<consts>
 		<!-- Spacing scale: use these instead of raw pixel paddings/gaps -->
-		<int name="space_xs" value="4"  help="Smallest spacing/padding unit" />
-		<int name="space_sm" value="8"  help="Small spacing/padding unit" />
+		<int name="space_xs" value="4" help="Smallest spacing/padding unit" />
+		<int name="space_sm" value="8" help="Small spacing/padding unit" />
 		<int name="space_md" value="16" help="Default spacing/padding unit" />
 		<int name="space_lg" value="24" help="Large spacing/padding unit" />
 		<int name="space_xl" value="40" help="Extra-large spacing/padding unit" />
 
 		<!-- Shape -->
-		<int name="radius"       value="14" help="Default corner radius" />
-		<int name="border_width" value="2"  help="Default border width" />
+		<int name="radius" value="14" help="Default corner radius" />
+		<int name="border_width" value="2" help="Default border width" />
 
 		<!-- Light palette -->
-		<color name="color_light_bg"    value="0xEEF1F6" help="Light theme screen background" />
+		<color name="color_light_bg" value="0xEEF1F6" help="Light theme screen background" />
 		<color name="color_light_panel" value="0xFFFFFF" help="Light theme panel/card background" />
-		<color name="color_light_text"  value="0x1B1F27" help="Light theme primary text" />
+		<color name="color_light_text" value="0x1B1F27" help="Light theme primary text" />
 
 		<!-- Dark palette -->
-		<color name="color_dark_bg"    value="0x12151C" help="Dark theme screen background" />
+		<color name="color_dark_bg" value="0x12151C" help="Dark theme screen background" />
 		<color name="color_dark_panel" value="0x1E232E" help="Dark theme panel/card background" />
-		<color name="color_dark_text"  value="0xE6E9F0" help="Dark theme primary text" />
+		<color name="color_dark_text" value="0xE6E9F0" help="Dark theme primary text" />
 
 		<!-- Accent + semantic colors (same in both themes) -->
-		<color name="color_accent"      value="0x9429FF" help="Accent / active control color" />
+		<color name="color_accent" value="0x9429FF" help="Accent / active control color" />
 		<color name="color_accent_text" value="0xFFFFFF" help="Text/icon drawn on top of the accent color" />
-		<color name="color_danger"      value="0xE5484D" help="Destructive / warning color" />
-		<color name="color_track"       value="0x9AA3B2" help="Neutral track behind sliders/arcs/bars" />
+		<color name="color_danger" value="0xE5484D" help="Destructive / warning color" />
+		<color name="color_track" value="0x9AA3B2" help="Neutral track behind sliders/arcs/bars" />
 	</consts>
+	<!-- Montserrat, compiled in (as_file="false") so no filesystem is needed.
+	     Latin range + a few common symbols; bump 'range'/'symbols' if you use
+	     more glyphs. font_body is the inherited default (see style_screen_*). -->
+	<fonts>
+		<bin
+			name="font_body"
+			size="16"
+			src_path="fonts/Montserrat-Regular.ttf"
+			bpp="4"
+			range="0x20-0x7F"
+			symbols="°—•"
+			as_file="false"
+		/>
+		<bin
+			name="font_h5"
+			size="18"
+			src_path="fonts/Montserrat-Medium.ttf"
+			bpp="4"
+			range="0x20-0x7F"
+			symbols="°—•"
+			as_file="false"
+		/>
+		<bin
+			name="font_h4"
+			size="22"
+			src_path="fonts/Montserrat-SemiBold.ttf"
+			bpp="4"
+			range="0x20-0x7F"
+			symbols="°—•"
+			as_file="false"
+		/>
+		<bin
+			name="font_h3"
+			size="28"
+			src_path="fonts/Montserrat-SemiBold.ttf"
+			bpp="4"
+			range="0x20-0x7F"
+			symbols="°—•"
+			as_file="false"
+		/>
+		<bin
+			name="font_h2"
+			size="34"
+			src_path="fonts/Montserrat-Bold.ttf"
+			bpp="4"
+			range="0x20-0x7F"
+			symbols="°—•"
+			as_file="false"
+		/>
+		<bin
+			name="font_h1"
+			size="44"
+			src_path="fonts/Montserrat-Bold.ttf"
+			bpp="4"
+			range="0x20-0x7F"
+			symbols="°—•"
+			as_file="false"
+		/>
+	</fonts>
 
 	<!-- Reusable style sheets. The light/dark variants are swapped at
 	     runtime with <bind_style subject="subject_theme_dark">. -->
@@ -51,13 +110,39 @@
 		     clears the theme (remove_style_all) and never re-sets text_color,
 		     so flipping subject_theme_dark here recolors all text at once,
 		     and font_body becomes the default font everywhere. -->
-		<style name="style_screen_light" bg_color="#color_light_bg" bg_opa="100%" text_color="#color_light_text" text_font="font_body" />
-		<style name="style_screen_dark"  bg_color="#color_dark_bg"  bg_opa="100%" text_color="#color_dark_text"  text_font="font_body" />
+		<style
+			name="style_screen_light"
+			bg_color="#color_light_bg"
+			bg_opa="100%"
+			text_color="#color_light_text"
+			text_font="font_body"
+		/>
+		<style
+			name="style_screen_dark"
+			bg_color="#color_dark_bg"
+			bg_opa="100%"
+			text_color="#color_dark_text"
+			text_font="font_body"
+		/>
 
 		<!-- Panel SURFACE only (bg + border). No text_color (inherited from
 		     the screen) and no geometry (that lives in the panel component). -->
-		<style name="style_panel_light" bg_color="#color_light_panel" bg_opa="100%" border_color="#color_light_text" border_opa="12%" border_width="#border_width" />
-		<style name="style_panel_dark"  bg_color="#color_dark_panel"  bg_opa="100%" border_color="#color_dark_text"  border_opa="12%" border_width="#border_width" />
+		<style
+			name="style_panel_light"
+			bg_color="#color_light_panel"
+			bg_opa="100%"
+			border_color="#color_light_text"
+			border_opa="12%"
+			border_width="#border_width"
+		/>
+		<style
+			name="style_panel_dark"
+			bg_color="#color_dark_panel"
+			bg_opa="100%"
+			border_color="#color_dark_text"
+			border_opa="12%"
+			border_width="#border_width"
+		/>
 
 		<!-- Accent text, e.g. a live value readout -->
 		<style name="style_text_accent" text_color="#color_accent" />
@@ -67,8 +152,15 @@
 
 		<!-- A list row: full width, vertically centered, divider line below.
 		     Shared by list_item and list_item_switch. -->
-		<style name="style_list_row" width="100%" flex_cross_place="center"
-		       border_side="bottom" border_width="1" border_color="#color_track" border_opa="25%" />
+		<style
+			name="style_list_row"
+			width="100%"
+			flex_cross_place="center"
+			border_side="bottom"
+			border_width="1"
+			border_color="#color_track"
+			border_opa="25%"
+		/>
 
 		<!-- Modal dim. Applied to a screen's content container (bound to
 		     subject_popup_open) so it recolors the whole background subtree
@@ -77,7 +169,7 @@
 		<style name="style_dim" recolor="0x000000" recolor_opa="45%" />
 
 		<!-- Shared track + indicator for arc / slider / bar -->
-		<style name="style_track"     bg_color="#color_track" bg_opa="35%" arc_color="#color_track" arc_opa="35%" />
+		<style name="style_track" bg_color="#color_track" bg_opa="35%" arc_color="#color_track" arc_opa="35%" />
 		<style name="style_indicator" bg_color="#color_accent" arc_color="#color_accent" />
 
 		<!-- Thin scrollbar shared by scrollable screens -->
@@ -88,25 +180,49 @@
 	     add your own and bind widgets to them with bind_value / bind_checked
 	     / bind_text. -->
 	<subjects>
-		<int name="subject_theme_dark" value="0" min_value="0" max_value="1"   help="0 = light theme, 1 = dark theme" />
-		<int name="subject_brightness" value="60" min_value="0" max_value="100" help="Example value (0..100) driven by the demo controls" />
-		<int name="subject_popup_open" value="0" min_value="0" max_value="1"   help="0 = popup closed, 1 = open (dims the screen + shows the demo popup)" />
+		<int name="subject_theme_dark" value="0" min_value="0" max_value="1" help="0 = light theme, 1 = dark theme" />
+		<int
+			name="subject_brightness"
+			value="60"
+			min_value="0"
+			max_value="100"
+			help="Example value (0..100) driven by the demo controls"
+		/>
+		<int
+			name="subject_popup_open"
+			value="0"
+			min_value="0"
+			max_value="1"
+			help="0 = popup closed, 1 = open (dims the screen + shows the demo popup)"
+		/>
+
+		<!-- Contacts screen: bound by the right-hand call/notification panel. -->
+		<int name="subject_ringer_volume" value="60" min_value="0" max_value="100" help="Ringer volume (0..100)" />
+		<int
+			name="subject_ring_duration"
+			value="20"
+			min_value="5"
+			max_value="60"
+			help="Seconds to ring before voicemail"
+		/>
+		<int
+			name="subject_do_not_disturb"
+			value="0"
+			min_value="0"
+			max_value="1"
+			help="0 = notifications on, 1 = do-not-disturb mode"
+		/>
+		<int
+			name="subject_show_photos"
+			value="1"
+			min_value="0"
+			max_value="1"
+			help="0 = name only, 1 = show contact photos"
+		/>
 	</subjects>
 
 	<images>
 		<!-- No images in the starter. Register PNGs here as
 		     <data name="image_x" src_path="images/x.png" color_format="argb8888" /> -->
 	</images>
-
-	<!-- Montserrat, compiled in (as_file="false") so no filesystem is needed.
-	     Latin range + a few common symbols; bump 'range'/'symbols' if you use
-	     more glyphs. font_body is the inherited default (see style_screen_*). -->
-	<fonts>
-		<bin name="font_body" size="16" src_path="fonts/Montserrat-Regular.ttf"  bpp="4" range="0x20-0x7F" symbols="°—•" as_file="false" />
-		<bin name="font_h5"   size="18" src_path="fonts/Montserrat-Medium.ttf"   bpp="4" range="0x20-0x7F" symbols="°—•" as_file="false" />
-		<bin name="font_h4"   size="22" src_path="fonts/Montserrat-SemiBold.ttf" bpp="4" range="0x20-0x7F" symbols="°—•" as_file="false" />
-		<bin name="font_h3"   size="28" src_path="fonts/Montserrat-SemiBold.ttf" bpp="4" range="0x20-0x7F" symbols="°—•" as_file="false" />
-		<bin name="font_h2"   size="34" src_path="fonts/Montserrat-Bold.ttf"     bpp="4" range="0x20-0x7F" symbols="°—•" as_file="false" />
-		<bin name="font_h1"   size="44" src_path="fonts/Montserrat-Bold.ttf"     bpp="4" range="0x20-0x7F" symbols="°—•" as_file="false" />
-	</fonts>
 </globals>
