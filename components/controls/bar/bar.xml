@@ -5,9 +5,9 @@
 
 	<api>
 		<prop name="subject" type="subject" default="subject_brightness" help="Int subject the bar follows" />
-		<prop name="min"     type="int"     default="0"    help="Lowest value" />
-		<prop name="max"     type="int"     default="100"  help="Highest value" />
-		<prop name="color"   type="color"   default="#color_accent" help="Filled indicator color" />
+		<prop name="min" type="int" default="0" help="Lowest value" />
+		<prop name="max" type="int" default="100" help="Highest value" />
+		<prop name="color" type="color" default="#color_accent" help="Filled indicator color" />
 	</api>
 
 	<!-- A read-only progress bar (no knob, not draggable) following $subject.
@@ -17,9 +17,16 @@
 		<style name="style_bar_track" bg_color="#color_track" bg_opa="35%" radius="#radius" />
 	</styles>
 
-	<view extends="lv_bar" width="200" height="14"
-	      min_value="$min" max_value="$max" bind_value="$subject"
-	      style_radius-indicator="#radius" style_bg_color-indicator="$color">
+	<view
+		extends="lv_bar"
+		width="200"
+		height="14"
+		min_value="$min"
+		max_value="$max"
+		bind_value="$subject"
+		style_radius-indicator="#radius"
+		style_bg_color-indicator="$color"
+	>
 		<style name="style_bar_track" />
 	</view>
 </component>

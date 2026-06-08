@@ -17,7 +17,7 @@
 
 	<!-- A list row whose trailing control is a toggle bound to $subject.
 	     Same divider/layout as list_item (shared style_list_row). -->
-	<view extends="list_item">
+	<view extends="list_item" title="$title" subtitle="$subtitle">
 		<list_item-trailing>
 			<toggle subject="$subject" />
 		</list_item-trailing>

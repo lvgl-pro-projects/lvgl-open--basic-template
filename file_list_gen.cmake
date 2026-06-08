@@ -34,5 +34,7 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/lvgl_open_template_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/lvgl_open_template.c
   ${CMAKE_CURRENT_LIST_DIR}/screens/screen_components_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/screen_contacts_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/screens/screen_home_gen.c
-  ${CMAKE_CURRENT_LIST_DIR}/screens/screen_settings_gen.c)
+  ${CMAKE_CURRENT_LIST_DIR}/screens/screen_settings_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/screen1_gen.c)

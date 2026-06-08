@@ -82,6 +82,11 @@
 					<button text="Components" width="100%">
 						<screen_load_event screen="screen_components" anim_type="over_left" duration="350" />
 					</button>
+
+					<!-- Two-column demo screen: contacts list + bound call settings. -->
+					<button text="Contacts" width="100%">
+						<screen_create_event screen="screen_contacts" anim_type="over_left" duration="350" />
+					</button>
 				</panel>
 			</container>
 		</container>
