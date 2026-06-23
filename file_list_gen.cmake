@@ -4,19 +4,21 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/arc/arc_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/bar/bar_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/button/button_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/controls/checkbox/checkbox_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/controls/dropdown/dropdown_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/slider/slider_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/controls/switch/switch_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/text_box/text_box_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/text_input/text_input_gen.c
-  ${CMAKE_CURRENT_LIST_DIR}/components/controls/toggle/toggle_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/layout/base_box/base_box_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/layout/column/column_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/layout/container/container_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/layout/panel/panel_gen.c
-  ${CMAKE_CURRENT_LIST_DIR}/components/layout/window/window_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/layout/row/row_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/list/list_item/list_item_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/list/list_section/list_section_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/list/list_separator/list_separator_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/list/list/list_gen.c
-  ${CMAKE_CURRENT_LIST_DIR}/components/overlays/popup/popup_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/typography/h1/h1_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/typography/h2/h2_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/typography/h3/h3_gen.c

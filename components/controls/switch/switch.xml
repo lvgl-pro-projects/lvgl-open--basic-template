@@ -4,12 +4,7 @@
 	</previews>
 
 	<api>
-		<prop
-			name="subject"
-			type="subject"
-			default="subject_theme_dark"
-			help="Int (0/1) subject bound two-way to the switch"
-		/>
+		<prop name="subject" type="subject" help="Int (0/1) subject bound two-way to the switch" />
 		<prop name="color" type="color" default="#color_accent" help="Track color when the switch is on" />
 	</api>
 

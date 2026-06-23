@@ -43,7 +43,7 @@ lv_obj_t * bar_create(lv_obj_t * parent, lv_subject_t * subject, int32_t min, in
         if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_ALL)) {
             lv_style_init(&style_bar_track);
             lv_style_set_bg_color(&style_bar_track, COLOR_TRACK);
-            lv_style_set_bg_opa(&style_bar_track, (255 * 35 / 100));
+            lv_style_set_bg_opa(&style_bar_track, OPA_MUTED);
             lv_style_set_radius(&style_bar_track, RADIUS);
 
         }
@@ -59,7 +59,7 @@ lv_obj_t * bar_create(lv_obj_t * parent, lv_subject_t * subject, int32_t min, in
         lv_obj_t * lv_bar_0 = lv_bar_create(parent);
         lv_obj_set_name_static(lv_bar_0, "bar_#");
         lv_obj_set_width(lv_bar_0, 200);
-        lv_obj_set_height(lv_bar_0, SPACE_LG);
+        lv_obj_set_height(lv_bar_0, SPACE_MD);
         lv_bar_set_min_value(lv_bar_0, min);
         lv_bar_set_max_value(lv_bar_0, max);
         lv_bar_bind_value(lv_bar_0, subject);

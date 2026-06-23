@@ -61,9 +61,10 @@ lv_obj_t * button_create(lv_obj_t * parent, const char * text, const void * icon
         lv_obj_set_style_bg_color(lv_button_0, bg_color, 0);
         lv_obj_set_style_text_color(lv_button_0, text_color, 0);
         lv_obj_set_style_radius(lv_button_0, radius, 0);
-        lv_obj_set_style_recolor(lv_button_0, lv_color_hex(0x000000), LV_STATE_PRESSED);
-        lv_obj_set_style_recolor_opa(lv_button_0, (255 * 25 / 100), LV_STATE_PRESSED);
+        lv_obj_set_style_recolor(lv_button_0, COLOR_TRACK, LV_STATE_PRESSED);
+        lv_obj_set_style_recolor_opa(lv_button_0, (255 * 40 / 100), LV_STATE_PRESSED);
         lv_obj_set_flex_flow(lv_button_0, LV_FLEX_FLOW_ROW);
+        lv_obj_set_style_pad_gap(lv_button_0, SPACE_SM, 0);
 
         lv_obj_add_style(lv_button_0, &style_button, 0);
         lv_obj_t * lv_image_0 = lv_image_create(lv_button_0);
@@ -71,6 +72,7 @@ lv_obj_t * button_create(lv_obj_t * parent, const char * text, const void * icon
         lv_obj_set_flag(lv_image_0, LV_OBJ_FLAG_HIDDEN, !icon);
         lv_obj_set_style_image_recolor(lv_image_0, text_color, 0);
         lv_obj_set_style_image_recolor_opa(lv_image_0, (255 * 100 / 100), 0);
+        lv_obj_set_style_translate_y(lv_image_0, -2, 0);
 
         lv_obj_t * lv_label_0 = lv_label_create(lv_button_0);
         lv_obj_set_align(lv_label_0, LV_ALIGN_CENTER);

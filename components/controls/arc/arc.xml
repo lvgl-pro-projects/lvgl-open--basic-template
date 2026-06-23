@@ -4,21 +4,16 @@
 	</previews>
 
 	<api>
-		<prop
-			name="subject"
-			type="subject"
-			default="subject_brightness"
-			help="Int subject the arc reads and writes; drag the arc to change it"
-		/>
+		<prop name="subject" type="subject" help="Int subject the arc reads and writes; drag the arc to change it" />
 		<prop name="min" type="int" default="0" help="Lowest value" />
 		<prop name="max" type="int" default="100" help="Highest value" />
 		<prop name="color" type="color" default="#color_accent" help="Indicator and knob color" />
 	</api>
 
 	<styles>
-		<style name="style_arc_track" arc_width="#space_lg" arc_color="#color_track" arc_opa="35%" arc_rounded="true" />
-		<style name="style_arc_ind" arc_width="#space_lg" arc_rounded="true" />
-		<style name="style_arc_knob" pad_all="#space_md" radius="100" />
+		<style name="style_arc_track" arc_width="#space_md" arc_color="#color_track" arc_opa="35%" arc_rounded="true" />
+		<style name="style_arc_ind" arc_width="#space_md" arc_rounded="true" />
+		<style name="style_arc_knob" pad_all="#space_sm" radius="100" />
 	</styles>
 
 	<!-- Reads and writes $subject (drag to change it); $color drives the

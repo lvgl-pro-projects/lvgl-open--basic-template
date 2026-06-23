@@ -170,9 +170,6 @@ lv_style_t style_panel_light;
 lv_style_t style_panel_dark;
 lv_style_t style_text_accent;
 lv_style_t style_text_muted;
-lv_style_t style_list_row;
-lv_style_t style_track;
-lv_style_t style_indicator;
 lv_style_t style_scrollbar;
 
 /*----------------
@@ -181,11 +178,6 @@ lv_style_t style_scrollbar;
 
 lv_subject_t subject_theme_dark;
 lv_subject_t subject_brightness;
-lv_subject_t subject_popup_open;
-lv_subject_t subject_ringer_volume;
-lv_subject_t subject_ring_duration;
-lv_subject_t subject_do_not_disturb;
-lv_subject_t subject_show_photos;
 
 /**********************
  *      MACROS
@@ -477,15 +469,21 @@ void lvgl_open_template_init_gen(const char * asset_path)
             lv_style_set_bg_color(&style_panel_light, COLOR_LIGHT_PANEL);
             lv_style_set_bg_opa(&style_panel_light, (255 * 100 / 100));
             lv_style_set_border_color(&style_panel_light, COLOR_LIGHT_TEXT);
-            lv_style_set_border_opa(&style_panel_light, (255 * 12 / 100));
+            lv_style_set_border_opa(&style_panel_light, (255 * 20 / 100));
             lv_style_set_border_width(&style_panel_light, BORDER_WIDTH);
+            lv_style_set_text_color(&style_panel_light, COLOR_LIGHT_TEXT);
+            lv_style_set_pad_all(&style_panel_light, SPACE_MD);
+            lv_style_set_radius(&style_panel_light, RADIUS);
 
             lv_style_init(&style_panel_dark);
             lv_style_set_bg_color(&style_panel_dark, COLOR_DARK_PANEL);
             lv_style_set_bg_opa(&style_panel_dark, (255 * 100 / 100));
             lv_style_set_border_color(&style_panel_dark, COLOR_DARK_TEXT);
-            lv_style_set_border_opa(&style_panel_dark, (255 * 12 / 100));
+            lv_style_set_border_opa(&style_panel_dark, (255 * 20 / 100));
             lv_style_set_border_width(&style_panel_dark, BORDER_WIDTH);
+            lv_style_set_text_color(&style_panel_dark, COLOR_DARK_TEXT);
+            lv_style_set_pad_all(&style_panel_dark, SPACE_MD);
+            lv_style_set_radius(&style_panel_dark, RADIUS);
 
             lv_style_init(&style_text_accent);
             lv_style_set_text_color(&style_text_accent, COLOR_ACCENT);
@@ -493,29 +491,12 @@ void lvgl_open_template_init_gen(const char * asset_path)
             lv_style_init(&style_text_muted);
             lv_style_set_text_opa(&style_text_muted, (255 * 60 / 100));
 
-            lv_style_init(&style_list_row);
-            lv_style_set_width(&style_list_row, lv_pct(100));
-            lv_style_set_flex_cross_place(&style_list_row, LV_FLEX_ALIGN_CENTER);
-            lv_style_set_border_side(&style_list_row, LV_BORDER_SIDE_BOTTOM);
-            lv_style_set_border_width(&style_list_row, 1);
-            lv_style_set_border_color(&style_list_row, COLOR_TRACK);
-            lv_style_set_border_opa(&style_list_row, (255 * 25 / 100));
-
-            lv_style_init(&style_track);
-            lv_style_set_bg_color(&style_track, COLOR_TRACK);
-            lv_style_set_bg_opa(&style_track, (255 * 35 / 100));
-            lv_style_set_arc_color(&style_track, COLOR_TRACK);
-            lv_style_set_arc_opa(&style_track, (255 * 35 / 100));
-
-            lv_style_init(&style_indicator);
-            lv_style_set_bg_color(&style_indicator, COLOR_ACCENT);
-            lv_style_set_arc_color(&style_indicator, COLOR_ACCENT);
-
             lv_style_init(&style_scrollbar);
-            lv_style_set_width(&style_scrollbar, SPACE_XS);
-            lv_style_set_radius(&style_scrollbar, SPACE_XS);
+            lv_style_set_width(&style_scrollbar, SPACE_SM);
+            lv_style_set_radius(&style_scrollbar, SPACE_SM);
             lv_style_set_bg_color(&style_scrollbar, COLOR_TRACK);
             lv_style_set_bg_opa(&style_scrollbar, (255 * 80 / 100));
+            lv_style_set_pad_all(&style_scrollbar, SPACE_SM);
 
         }
         #endif
@@ -531,21 +512,6 @@ void lvgl_open_template_init_gen(const char * asset_path)
     lv_subject_init_int(&subject_brightness, 60);
     lv_subject_set_min_value_int(&subject_brightness, 0);
     lv_subject_set_max_value_int(&subject_brightness, 100);
-    lv_subject_init_int(&subject_popup_open, 0);
-    lv_subject_set_min_value_int(&subject_popup_open, 0);
-    lv_subject_set_max_value_int(&subject_popup_open, 1);
-    lv_subject_init_int(&subject_ringer_volume, 60);
-    lv_subject_set_min_value_int(&subject_ringer_volume, 0);
-    lv_subject_set_max_value_int(&subject_ringer_volume, 100);
-    lv_subject_init_int(&subject_ring_duration, 20);
-    lv_subject_set_min_value_int(&subject_ring_duration, 5);
-    lv_subject_set_max_value_int(&subject_ring_duration, 60);
-    lv_subject_init_int(&subject_do_not_disturb, 0);
-    lv_subject_set_min_value_int(&subject_do_not_disturb, 0);
-    lv_subject_set_max_value_int(&subject_do_not_disturb, 1);
-    lv_subject_init_int(&subject_show_photos, 1);
-    lv_subject_set_min_value_int(&subject_show_photos, 0);
-    lv_subject_set_max_value_int(&subject_show_photos, 1);
 
     /*----------------
      * Translations
@@ -574,11 +540,6 @@ void lvgl_open_template_init_gen(const char * asset_path)
     /* Register subjects */
     lv_xml_register_subject(NULL, "subject_theme_dark", &subject_theme_dark);
     lv_xml_register_subject(NULL, "subject_brightness", &subject_brightness);
-    lv_xml_register_subject(NULL, "subject_popup_open", &subject_popup_open);
-    lv_xml_register_subject(NULL, "subject_ringer_volume", &subject_ringer_volume);
-    lv_xml_register_subject(NULL, "subject_ring_duration", &subject_ring_duration);
-    lv_xml_register_subject(NULL, "subject_do_not_disturb", &subject_do_not_disturb);
-    lv_xml_register_subject(NULL, "subject_show_photos", &subject_show_photos);
 
     /* Register callbacks */
 #endif

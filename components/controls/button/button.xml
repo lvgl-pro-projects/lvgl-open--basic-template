@@ -24,8 +24,8 @@
 		style_bg_color="$bg_color"
 		style_text_color="$text_color"
 		style_radius="$radius"
-		style_recolor-pressed="0x000000"
-		style_recolor_opa-pressed="25%"
+		style_recolor-pressed="#color_track"
+		style_recolor_opa-pressed="40%"
 		flex_flow="row"
 		style_pad_gap="#space_sm"
 	>

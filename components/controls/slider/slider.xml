@@ -7,7 +7,6 @@
 		<prop
 			name="subject"
 			type="subject"
-			default="subject_brightness"
 			help="Int subject the slider reads and writes; drag it to change the subject"
 		/>
 		<prop name="min" type="int" default="0" help="Lowest value" />
@@ -24,7 +23,7 @@
 	<view
 		extends="lv_slider"
 		width="200"
-		height="#space_lg"
+		height="#space_md"
 		min_value="$min"
 		max_value="$max"
 		bind_value="$subject"

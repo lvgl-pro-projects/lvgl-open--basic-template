@@ -5,12 +5,7 @@
 
 	<api>
 		<prop name="text" type="string" default="Checkbox" help="Label shown next to the box" />
-		<prop
-			name="subject"
-			type="subject"
-			default="NULL"
-			help="Optional 0/1 subject bound two-way to the checked state"
-		/>
+		<prop name="subject" type="subject" help="Optional 0/1 subject bound two-way to the checked state" />
 		<prop name="color" type="color" default="#color_accent" help="Box fill color when checked" />
 	</api>
 
@@ -22,6 +17,7 @@
 			border_width="#border_width"
 			border_color="#color_track"
 			bg_opa="0%"
+			pad_all="2"
 		/>
 		<style
 			name="style_box_checked"

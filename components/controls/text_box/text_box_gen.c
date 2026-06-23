@@ -45,7 +45,10 @@ lv_obj_t * text_box_create(lv_obj_t * parent, const char * text, const char * pl
         lv_obj_set_height(lv_textarea_0, 120);
         lv_textarea_set_text(lv_textarea_0, text);
         lv_textarea_set_placeholder_text(lv_textarea_0, placeholder);
-        lv_obj_set_style_radius(lv_textarea_0, RADIUS, 0);
+
+        lv_obj_add_style(lv_textarea_0, &style_panel_light, 0);
+        lv_obj_bind_style(lv_textarea_0, &style_panel_dark, 0, &subject_theme_dark, 1);
+        lv_obj_add_style(lv_textarea_0, &style_text_muted, LV_PART_TEXTAREA_PLACEHOLDER);
 
         the_root = lv_textarea_0;
     }

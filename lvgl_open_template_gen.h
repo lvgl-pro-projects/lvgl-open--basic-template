@@ -58,7 +58,7 @@ static inline int32_t space_xs() {
     /**
      * Smallest spacing/padding unit
      */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 2;
+    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 4;
     /**
      * Smallest spacing/padding unit
      */
@@ -76,7 +76,7 @@ static inline int32_t space_sm() {
     /**
      * Small spacing/padding unit
      */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 4;
+    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 6;
     /**
      * Small spacing/padding unit
      */
@@ -94,7 +94,7 @@ static inline int32_t space_md() {
     /**
      * Default spacing/padding unit
      */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 8;
+    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 10;
     /**
      * Default spacing/padding unit
      */
@@ -112,7 +112,7 @@ static inline int32_t space_lg() {
     /**
      * Large spacing/padding unit
      */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 12;
+    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 16;
     /**
      * Large spacing/padding unit
      */
@@ -130,7 +130,7 @@ static inline int32_t space_xl() {
     /**
      * Extra-large spacing/padding unit
      */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 20;
+    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 22;
     /**
      * Extra-large spacing/padding unit
      */
@@ -180,24 +180,14 @@ static inline int32_t border_width() {
 }
 
 #define BORDER_WIDTH border_width()
-static inline lv_color_t color_accent() {
-    /**
-     * Accent / active control color
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_LARGE)) return lv_color_hex(0xd2226c);
-    /**
-     * Accent / active control color
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_ALL)) return lv_color_hex(0x9429FF);
-
-    return lv_color_black();
-}
-
-#define COLOR_ACCENT color_accent()
 /**
  * Default icon size
  */
 #define ICON_SIZE 16
+/**
+ * Used to dim down contant
+ */
+#define OPA_MUTED (255 * 35 / 100)
 /**
  * Light theme screen background
  */
@@ -222,6 +212,10 @@ static inline lv_color_t color_accent() {
  * Dark theme primary text
  */
 #define COLOR_DARK_TEXT lv_color_hex(0xE6E9F0)
+/**
+ * Accent / active control color
+ */
+#define COLOR_ACCENT lv_color_hex(0x9429FF)
 /**
  * Text/icon drawn on top of the accent color
  */
@@ -264,9 +258,6 @@ extern lv_style_t style_panel_light;
 extern lv_style_t style_panel_dark;
 extern lv_style_t style_text_accent;
 extern lv_style_t style_text_muted;
-extern lv_style_t style_list_row;
-extern lv_style_t style_track;
-extern lv_style_t style_indicator;
 extern lv_style_t style_scrollbar;
 
 /*----------------
@@ -340,11 +331,6 @@ extern const void * icon_wifi_zero;
 
 extern lv_subject_t subject_theme_dark;
 extern lv_subject_t subject_brightness;
-extern lv_subject_t subject_popup_open;
-extern lv_subject_t subject_ringer_volume;
-extern lv_subject_t subject_ring_duration;
-extern lv_subject_t subject_do_not_disturb;
-extern lv_subject_t subject_show_photos;
 
 /**********************
  * GLOBAL PROTOTYPES
@@ -372,19 +358,21 @@ void lvgl_open_template_init_gen(const char * asset_path);
 #include "components/controls/arc/arc_gen.h"
 #include "components/controls/bar/bar_gen.h"
 #include "components/controls/button/button_gen.h"
+#include "components/controls/checkbox/checkbox_gen.h"
+#include "components/controls/dropdown/dropdown_gen.h"
 #include "components/controls/slider/slider_gen.h"
+#include "components/controls/switch/switch_gen.h"
 #include "components/controls/text_box/text_box_gen.h"
 #include "components/controls/text_input/text_input_gen.h"
-#include "components/controls/toggle/toggle_gen.h"
 #include "components/layout/base_box/base_box_gen.h"
+#include "components/layout/column/column_gen.h"
 #include "components/layout/container/container_gen.h"
 #include "components/layout/panel/panel_gen.h"
-#include "components/layout/window/window_gen.h"
+#include "components/layout/row/row_gen.h"
 #include "components/list/list_item/list_item_gen.h"
 #include "components/list/list_section/list_section_gen.h"
 #include "components/list/list_separator/list_separator_gen.h"
 #include "components/list/list/list_gen.h"
-#include "components/overlays/popup/popup_gen.h"
 #include "components/typography/h1/h1_gen.h"
 #include "components/typography/h2/h2_gen.h"
 #include "components/typography/h3/h3_gen.h"

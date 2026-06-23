@@ -44,10 +44,8 @@ lv_obj_t * base_box_create(lv_obj_t * parent)
             lv_style_init(&style_base_box);
             lv_style_set_width(&style_base_box, LV_SIZE_CONTENT);
             lv_style_set_height(&style_base_box, LV_SIZE_CONTENT);
-            lv_style_set_bg_opa(&style_base_box, (255 * 0 / 100));
-            lv_style_set_border_width(&style_base_box, 0);
-            lv_style_set_pad_all(&style_base_box, 0);
             lv_style_set_layout(&style_base_box, LV_LAYOUT_FLEX);
+            lv_style_set_flex_flow(&style_base_box, LV_FLEX_FLOW_COLUMN);
 
         }
         #endif

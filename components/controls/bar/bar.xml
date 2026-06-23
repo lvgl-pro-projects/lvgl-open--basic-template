@@ -4,7 +4,7 @@
 	</previews>
 
 	<api>
-		<prop name="subject" type="subject" default="subject_brightness" help="Int subject the bar follows" />
+		<prop name="subject" type="subject" help="Int subject the bar follows" />
 		<prop name="min" type="int" default="0" help="Lowest value" />
 		<prop name="max" type="int" default="100" help="Highest value" />
 		<prop name="color" type="color" default="#color_accent" help="Filled indicator color" />
@@ -19,7 +19,7 @@
 	<view
 		extends="lv_bar"
 		width="200"
-		height="#space_lg"
+		height="#space_md"
 		min_value="$min"
 		max_value="$max"
 		bind_value="$subject"

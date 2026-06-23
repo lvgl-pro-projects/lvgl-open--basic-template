@@ -11,11 +11,11 @@
 	     Per-target blocks scale spacing/shape to the display size. -->
 	<consts if_target="small">
 		<!-- Spacing scale: use these instead of raw pixel paddings/gaps -->
-		<int name="space_xs" value="2" help="Smallest spacing/padding unit" />
-		<int name="space_sm" value="4" help="Small spacing/padding unit" />
-		<int name="space_md" value="8" help="Default spacing/padding unit" />
-		<int name="space_lg" value="12" help="Large spacing/padding unit" />
-		<int name="space_xl" value="20" help="Extra-large spacing/padding unit" />
+		<int name="space_xs" value="4" help="Smallest spacing/padding unit" />
+		<int name="space_sm" value="6" help="Small spacing/padding unit" />
+		<int name="space_md" value="10" help="Default spacing/padding unit" />
+		<int name="space_lg" value="16" help="Large spacing/padding unit" />
+		<int name="space_xl" value="22" help="Extra-large spacing/padding unit" />
 
 		<!-- Shape -->
 		<int name="radius" value="8" help="Default corner radius" />
@@ -181,22 +181,6 @@
 
 		<!-- Muted secondary text (captions, subtitles, section headers) -->
 		<style name="style_text_muted" text_opa="60%" />
-
-		<!-- A list row: full width, vertically centered, divider line below.
-		     Used by list_item. -->
-		<style
-			name="style_list_row"
-			width="100%"
-			flex_cross_place="center"
-			border_side="bottom"
-			border_width="1"
-			border_color="#color_track"
-			border_opa="25%"
-		/>
-
-		<!-- Shared track + indicator for arc / slider / bar -->
-		<style name="style_track" bg_color="#color_track" bg_opa="35%" arc_color="#color_track" arc_opa="35%" />
-		<style name="style_indicator" bg_color="#color_accent" arc_color="#color_accent" />
 
 		<!-- Thin scrollbar shared by scrollable screens -->
 		<style
