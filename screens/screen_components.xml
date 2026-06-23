@@ -5,13 +5,11 @@
 		<style name="style_scrollbar" selector="scrollbar" />
 
 		<container name="content" width="100%" height="100%" pad="#space_lg" gap="#space_md">
-			<bind_style name="style_dim" subject="subject_popup_open" ref_value="1" />
+			<h1 text="Components" />
 
-			<h2 text="Components" />
-
-			<window title="Devices" width="100%" flex_grow="1">
+			<window title="Devices" width="100%" height="100%">
 				<window-buttons>
-					<button text="Add" />
+					<button text="Add" icon="icon_plus" />
 				</window-buttons>
 
 				<window-content>
@@ -36,40 +34,9 @@
 
 						<list_separator />
 						<list_section text="System" />
-
-						<list_item_switch
-							title="Dark mode"
-							subtitle="Theme for the whole UI"
-							subject="subject_theme_dark"
-						/>
 					</list>
 				</window-content>
 			</window>
-
-			<button text="Open dialog" width="100%">
-				<subject_set_int_event subject="subject_popup_open" trigger="clicked" value="1" />
-			</button>
-
-			<button text="Back" width="100%">
-				<screen_load_event screen="screen_home" anim_type="over_right" duration="350" />
-			</button>
 		</container>
-
-		<popup title="Delete device?" modal="true">
-			<bind_flag_if_eq subject="subject_popup_open" flag="hidden" ref_value="0" />
-
-			<popup-content>
-				<text text="This removes the device and its automations. This cannot be undone." width="100%" />
-			</popup-content>
-
-			<popup-footer>
-				<button text="Cancel">
-					<subject_set_int_event subject="subject_popup_open" trigger="clicked" value="0" />
-				</button>
-				<button text="Delete" bg_color="#color_danger">
-					<subject_set_int_event subject="subject_popup_open" trigger="clicked" value="0" />
-				</button>
-			</popup-footer>
-		</popup>
 	</view>
 </screen>

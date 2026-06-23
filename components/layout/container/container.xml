@@ -12,7 +12,7 @@
 		<prop
 			name="grow"
 			type="int"
-			default="NULL"
+			default="0"
 			help="flex_grow when this box itself sits in a flex parent; NULL = natural size"
 		/>
 	</api>

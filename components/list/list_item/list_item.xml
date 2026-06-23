@@ -24,13 +24,13 @@
 		<style name="style_list_row" />
 
 		<!-- slot target: left icon -->
-		<lv_image name="icon" src="$icon" />
+		<lv_image name="icon_obj" src="$icon" hidden="{!icon}" />
 
 		<!-- title + subtitle stacked, taking the remaining width -->
-		<container grow="1" gap="2">
+		<container grow="1" gap="#space_xs">
 			<h5 text="$title" />
-			<text text="$subtitle">
-				<style name="style_muted" />
+			<text text="$subtitle" hidden="{!subtitle}">
+				<style name="style_text_muted" />
 			</text>
 		</container>
 

@@ -1,8 +1,4 @@
 <component>
-	<previews>
-		<preview name="default" width="400" />
-	</previews>
-
 	<api>
 		<prop name="text" type="string" default="Body text" help="The paragraph / body text" />
 	</api>

@@ -14,19 +14,20 @@
 	     Neutral track on the main part; the fill takes $color. Set width at
 	     the use-site. -->
 	<styles>
-		<style name="style_bar_track" bg_color="#color_track" bg_opa="35%" radius="#radius" />
+		<style name="style_bar_track" bg_color="#color_track" bg_opa="#opa_muted" radius="#radius" />
 	</styles>
 
 	<view
 		extends="lv_bar"
 		width="200"
-		height="14"
+		height="#space_lg"
 		min_value="$min"
 		max_value="$max"
 		bind_value="$subject"
-		style_radius-indicator="#radius"
 		style_bg_color-indicator="$color"
+		style_bg_opa-indicator="100%"
 	>
 		<style name="style_bar_track" />
+		<style name="style_bar_track" selector="indicator" />
 	</view>
 </component>

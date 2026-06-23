@@ -12,7 +12,7 @@
 	     the wipe would run after the locals and erase them. -->
 	<styles>
 		<!-- Transparent + flex; size hugs content until a width/height is set. -->
-		<style name="style_base_box" width="content" height="content" bg_opa="0%" border_width="0" pad_all="0" layout="flex" />
+		<style name="style_base_box" width="content" height="content" layout="flex" flex_flow="column" />
 	</styles>
 
 	<view extends="lv_obj">

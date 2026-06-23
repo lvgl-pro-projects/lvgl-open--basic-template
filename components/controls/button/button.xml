@@ -4,16 +4,17 @@
 	</previews>
 
 	<api>
-		<prop name="text"       type="string" default="Button"             help="Button caption" />
-		<prop name="bg_color"   type="color"  default="#color_accent"      help="Button background color" />
-		<prop name="text_color" type="color"  default="#color_accent_text" help="Caption color" />
-		<prop name="radius"     type="int"    default="#radius"            help="Corner radius" />
+		<prop name="text" type="string" default="Button" help="Button caption" />
+		<prop name="icon" type="image" default="" />
+		<prop name="bg_color" type="color" default="#color_accent" help="Button background color" />
+		<prop name="text_color" type="color" default="#color_accent_text" help="Caption color" />
+		<prop name="radius" type="int" default="#radius" help="Corner radius" />
 	</api>
 
 	<!-- Static geometry. The caption color is inherited by the label child
 	     from the button's $text_color local. -->
 	<styles>
-		<style name="style_button" pad_hor="#space_lg" pad_ver="#space_sm" />
+		<style name="style_button" pad_hor="#space_lg" pad_ver="#space_md" flex_cross_place="center" />
 	</styles>
 
 	<!-- A button with a centered caption. Attach behavior at the use-site as
@@ -22,10 +23,17 @@
 	         <button text="Next"><screen_load_event screen="screen_two"/></button>
 	     The $color props are locals so they stack on top of the theme; the
 	     pressed state darkens via recolor. -->
-	<view extends="lv_button"
-	      style_bg_color="$bg_color" style_text_color="$text_color" style_radius="$radius"
-	      style_recolor-pressed="0x000000" style_recolor_opa-pressed="25%">
+	<view
+		extends="lv_button"
+		style_bg_color="$bg_color"
+		style_text_color="$text_color"
+		style_radius="$radius"
+		style_recolor-pressed="0x000000"
+		style_recolor_opa-pressed="25%"
+		flex_flow="row"
+	>
 		<style name="style_button" />
-		<lv_label align="center" text="$text" />
+		<lv_image src="$icon" hidden="{!icon}" style_image_recolor="$text_color" style_image_recolor_opa="100%" />
+		<lv_label align="center" text="$text" hidden="{!text}" />
 	</view>
 </component>
