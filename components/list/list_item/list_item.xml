@@ -11,12 +11,17 @@
 			default=""
 			help="Secondary text under the title (empty = just a blank line)"
 		/>
-		<!-- Left icon area. Fill with <list_item-icon><lv_image .../></list_item-icon>. -->
+		<!-- Left icon area. -->
 		<prop name="icon" type="image" default="" />
 		<!-- Right area for a chevron, value label, switch, icon, etc.
 		     Fill with <list_item-trailing>...</list_item-trailing>. -->
 		<slot name="trailing" />
 	</api>
+
+	<styles>
+		<style name="style_icon_light" image_recolor="#color_light_text" image_recolor_opa="100%" />
+		<style name="style_icon_dark" image_recolor="#color_dark_text" image_recolor_opa="100%" />
+	</styles>
 
 	<!-- One list row: [icon] title / subtitle [trailing].
 	     Uses the shared style_list_row (full width + divider) from globals. -->
@@ -24,7 +29,10 @@
 		<style name="style_list_row" />
 
 		<!-- slot target: left icon -->
-		<lv_image name="icon_obj" src="$icon" hidden="{!icon}" />
+		<lv_image name="icon_obj" src="$icon" hidden="{!icon}">
+			<style name="style_icon_light" />
+			<bind_style name="style_icon_dark" subject="subject_theme_dark" ref_value="1" />
+		</lv_image>
 
 		<!-- title + subtitle stacked, taking the remaining width -->
 		<container grow="1" gap="#space_xs">

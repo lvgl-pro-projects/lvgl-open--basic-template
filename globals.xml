@@ -158,7 +158,7 @@
 			bg_color="#color_light_panel"
 			bg_opa="100%"
 			border_color="#color_light_text"
-			border_opa="#opa_muted"
+			border_opa="20%"
 			border_width="#border_width"
 			text_color="#color_light_text"
 			pad_all="#space_md"
@@ -169,7 +169,7 @@
 			bg_color="#color_dark_panel"
 			bg_opa="100%"
 			border_color="#color_dark_text"
-			border_opa="#opa_muted"
+			border_opa="20%"
 			border_width="#border_width"
 			text_color="#color_dark_text"
 			pad_all="#space_md"
@@ -199,7 +199,14 @@
 		<style name="style_indicator" bg_color="#color_accent" arc_color="#color_accent" />
 
 		<!-- Thin scrollbar shared by scrollable screens -->
-		<style name="style_scrollbar" width="#space_xs" radius="#space_xs" bg_color="#color_track" bg_opa="80%" />
+		<style
+			name="style_scrollbar"
+			width="#space_sm"
+			radius="#space_sm"
+			bg_color="#color_track"
+			bg_opa="80%"
+			pad_all="#space_sm"
+		/>
 	</styles>
 
 	<!-- Observable model the UI binds to. Add your own and bind widgets with

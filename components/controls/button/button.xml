@@ -27,9 +27,16 @@
 		style_recolor-pressed="0x000000"
 		style_recolor_opa-pressed="25%"
 		flex_flow="row"
+		style_pad_gap="#space_sm"
 	>
 		<style name="style_button" />
-		<lv_image src="$icon" hidden="{!icon}" style_image_recolor="$text_color" style_image_recolor_opa="100%" />
+		<lv_image
+			src="$icon"
+			hidden="{!icon}"
+			style_image_recolor="$text_color"
+			style_image_recolor_opa="100%"
+			style_translate_y="-2"
+		/>
 		<lv_label align="center" text="$text" hidden="{!text}" />
 	</view>
 </component>

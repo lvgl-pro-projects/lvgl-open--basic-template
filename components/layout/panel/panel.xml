@@ -11,16 +11,9 @@
 		<prop name="grow" type="int" default="0" help="flex_grow when placed in a flex row; NULL = natural size" />
 	</api>
 
-	<!-- Geometry only. Surface (bg + border) comes from the globals
-	     style_panel_light/dark pair, swapped by subject_theme_dark. -->
-	<styles>
-		<style name="style_panel" border_width="#border_width" />
-	</styles>
-
 	<!-- Visible card surface over a container; pad/gap/flow/grow pass through. -->
 	<view extends="container" pad="$pad" gap="$gap" flow="$flow" grow="$grow">
 		<style name="style_panel_light" />
 		<bind_style name="style_panel_dark" subject="subject_theme_dark" ref_value="1" />
-		<style name="style_panel" />
 	</view>
 </component>

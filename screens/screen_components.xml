@@ -1,27 +1,17 @@
 <screen permanent="true">
-	<!-- Showcase screen: one panel per component group. Not a real UI —
-	     it just exercises every component so you can preview and copy them.
-	     The screen root carries the light/dark theme; flip it with the
-	     switch in the header (every switch below binds the same subject,
-	     so they all move together). -->
 	<view extends="lv_obj">
 		<style name="style_screen_light" />
 		<bind_style name="style_screen_dark" subject="subject_theme_dark" ref_value="1" />
 		<style name="style_scrollbar" selector="scrollbar" />
 
-		<!-- Scrolling column; height=content so the screen scrolls on overflow -->
-		<container name="content" width="100%" height="content" pad="#space_lg" gap="#space_md">
-
-			<!-- Header: title on the left, theme toggle pushed to the right -->
-			<container flow="row" width="100%" gap="#space_md">
-				<h1 text="Components" />
+		<column name="content" width="100%" height="content" pad="#space_lg" gap="#space_md">
+			<row width="100%" gap="#space_md" vertical_align="center">
+				<h5 text="Dark theme" />
 				<container grow="1" />
 				<switch subject="subject_theme_dark" />
-			</container>
+			</row>
 
-			<!-- Typography scale -->
 			<panel width="100%" gap="#space_sm">
-				<list_section text="Typography" />
 				<h2 text="Heading 2" />
 				<h3 text="Heading 3" />
 				<h4 text="Heading 4" />
@@ -29,44 +19,48 @@
 				<text text="Body text. Give it a width and it wraps across the panel." width="100%" />
 			</panel>
 
-			<!-- Buttons: default, with icon, and a danger variant -->
 			<panel width="100%" gap="#space_sm">
-				<list_section text="Buttons" />
-				<container flow="row" gap="#space_sm">
+				<h4 text="Buttons" />
+				<row gap="#space_sm">
 					<button text="Primary" />
 					<button text="Add" icon="icon_plus" />
 					<button text="Delete" icon="icon_trash" bg_color="#color_danger" />
-				</container>
+				</row>
 			</panel>
 
-			<!-- Value controls, all bound to subject_brightness so they sync live -->
 			<panel width="100%" gap="#space_md">
-				<list_section text="Controls" />
+				<h4 text="Controls" />
 				<slider subject="subject_brightness" width="100%" />
 				<bar subject="subject_brightness" width="100%" />
-				<container flow="row" gap="#space_lg" style_flex_cross_place="center">
+				<row gap="#space_lg" vertical_align="center">
 					<arc subject="subject_brightness">
-						<!-- centered readout inside the arc -->
 						<lv_label align="center" bind_text="subject_brightness" bind_text-fmt="%d%%">
 							<style name="style_text_accent" />
 						</lv_label>
 					</arc>
 					<switch />
-				</container>
+				</row>
 			</panel>
 
-			<!-- Text entry: single line, password, multi-line -->
 			<panel width="100%" gap="#space_sm">
-				<list_section text="Text input" />
+				<h4 text="Text inputs" />
 				<text_input placeholder="Single line" width="100%" />
 				<text_input placeholder="Password" password="true" width="100%" />
 				<text_box placeholder="Multi-line text box" width="100%" />
 			</panel>
 
-			<!-- List: sections, rows with icon / subtitle / trailing, separator -->
+			<panel width="100%" gap="#space_sm">
+				<h4 text="Selection" />
+				<dropdown options="Low&#10;Medium&#10;High" width="100%" />
+				<checkbox text="Enable feature" />
+				<checkbox text="Subscribe" />
+			</panel>
+
 			<list width="100%">
 				<list_section text="List" />
-				<list_item title="Wi-Fi" subtitle="Connected" icon="icon_wifi">
+				<list_item title="Simple item" />
+				<list_item title="Simple item with icon" icon="icon_bell" />
+				<list_item title="Turn me on!" icon="icon_edit">
 					<list_item-trailing>
 						<switch />
 					</list_item-trailing>
@@ -81,7 +75,6 @@
 				<list_separator />
 				<list_item title="About" subtitle="Version 1.0" icon="icon_info" />
 			</list>
-
-		</container>
+		</column>
 	</view>
 </screen>
