@@ -1,17 +1,10 @@
 <component>
-	<!-- INTERNAL BASE — you normally use `container` or `panel`, not this.
-
-	     This is the ONE place <remove_style_all/> runs. It strips the theme
-	     (including the theme's per-widget text_color, which would otherwise
-	     stop the screen's bound light/dark text_color from inheriting down).
-
-	     It must live in its OWN component: anything that extends base_box
-	     (container, panel) applies its styles/locals AFTER base_box_create
-	     has already run remove_style_all, so those styles survive. If
-	     remove_style_all and the parametrized locals were on the same view,
-	     the wipe would run after the locals and erase them. -->
+	<!-- INTERNAL — use `container`/`panel` instead. The one place
+	     <remove_style_all/> runs, so the screen's bound text_color can
+	     inherit down. Kept separate so extenders' locals apply AFTER the
+	     wipe (same-view locals would be erased by it). -->
 	<styles>
-		<!-- Transparent + flex; size hugs content until a width/height is set. -->
+		<!-- Transparent + flex; hugs content until a size is set. -->
 		<style name="style_base_box" width="content" height="content" layout="flex" flex_flow="column" />
 	</styles>
 

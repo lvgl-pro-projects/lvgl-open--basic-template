@@ -7,8 +7,6 @@
 		<prop name="text" type="string" default="Heading 5" help="Heading text" />
 	</api>
 
-	<!-- Smallest heading: Montserrat Medium 18. No text_color set, so it
-	     inherits the screen's bound light/dark color. Override per-use with
-	     style_text_color if needed. -->
+	<!-- Smallest heading. Text color inherited; override per-use with style_text_color. -->
 	<view extends="lv_label" text="$text" style_text_font="font_h5" />
 </component>

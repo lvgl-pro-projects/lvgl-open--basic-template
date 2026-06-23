@@ -1,19 +1,14 @@
 <globals>
-	<!-- ============================================================
-	     DESIGN SYSTEM
-	     This file is the single source of truth for the project:
-	     spacing, colors, fonts, the light/dark styles and the
-	     observable subjects. Reference consts as #name, styles by
-	     <style name="...">, fonts by their name in text_font=.
-	     ============================================================ -->
+	<!-- DESIGN SYSTEM — single source of truth for spacing, colors, fonts,
+	     the light/dark styles and the observable subjects.
+	     Reference consts as #name, styles by <style name="...">, fonts by name. -->
 
 	<api>
-		<!-- No project-wide enums in the starter. Add <enumdef> here when
-		     a component needs a named set of options. -->
+		<!-- Project-wide enums go here. Add <enumdef> when a component needs one. -->
 	</api>
 
-	<!-- Fixed design tokens. Reference everywhere as #name so a single
-	     edit here re-tunes the whole UI. -->
+	<!-- Design tokens. Reference as #name so one edit re-tunes the whole UI.
+	     Per-target blocks scale spacing/shape to the display size. -->
 	<consts if_target="small">
 		<!-- Spacing scale: use these instead of raw pixel paddings/gaps -->
 		<int name="space_xs" value="2" help="Smallest spacing/padding unit" />
@@ -47,7 +42,6 @@
 		<int name="space_md" value="24" help="Default spacing/padding unit" />
 		<int name="space_lg" value="32" help="Large spacing/padding unit" />
 		<int name="space_xl" value="60" help="Extra-large spacing/padding unit" />
-		<color name="color_accent" value="0xd2226c" help="Accent / active control color" />
 
 		<!-- Shape -->
 		<int name="radius" value="24" help="Default corner radius" />
@@ -75,9 +69,9 @@
 		<color name="color_track" value="0x9AA3B2" help="Neutral track behind sliders/arcs/bars" />
 	</consts>
 
-	<!-- Montserrat, compiled in (as_file="false") so no filesystem is needed.
-	     Latin range + a few common symbols; bump 'range'/'symbols' if you use
-	     more glyphs. font_body is the inherited default (see style_screen_*). -->
+	<!-- Montserrat, compiled in (as_file="false"). Latin range + a few symbols;
+	     bump range/symbols if you need more glyphs.
+	     font_body is the inherited default (see style_screen_*). -->
 	<fonts>
 		<bin
 			name="font_body"
@@ -135,14 +129,13 @@
 		/>
 	</fonts>
 
-	<!-- Reusable style sheets. The light/dark variants are swapped at
-	     runtime with <bind_style subject="subject_theme_dark">. -->
+	<!-- Reusable styles. Light/dark variants are swapped at runtime with
+	     <bind_style subject="subject_theme_dark">. -->
 	<styles>
-		<!-- Screen backgrounds. These set BOTH text_color and text_font so
-		     they INHERIT down the whole tree: every container/panel below
-		     clears the theme (remove_style_all) and never re-sets text_color,
-		     so flipping subject_theme_dark here recolors all text at once,
-		     and font_body becomes the default font everywhere. -->
+		<!-- Screen backgrounds. Set BOTH text_color and text_font so they
+		     inherit down the whole tree (children clear the theme and never
+		     re-set text_color), so one subject_theme_dark flip recolors all
+		     text and font_body becomes the default font everywhere. -->
 		<style
 			name="style_screen_light"
 			bg_color="#color_light_bg"
@@ -158,8 +151,8 @@
 			text_font="font_body"
 		/>
 
-		<!-- Panel SURFACE only (bg + border). No text_color (inherited from
-		     the screen) and no geometry (that lives in the panel component). -->
+		<!-- Panel surface: bg, border and matching text_color.
+		     Geometry lives in the panel component. -->
 		<style
 			name="style_panel_light"
 			bg_color="#color_light_panel"
@@ -190,7 +183,7 @@
 		<style name="style_text_muted" text_opa="60%" />
 
 		<!-- A list row: full width, vertically centered, divider line below.
-		     Shared by list_item and list_item_switch. -->
+		     Used by list_item. -->
 		<style
 			name="style_list_row"
 			width="100%"
@@ -209,9 +202,8 @@
 		<style name="style_scrollbar" width="#space_xs" radius="#space_xs" bg_color="#color_track" bg_opa="80%" />
 	</styles>
 
-	<!-- Subjects: the observable model the UI binds to. Two examples here;
-	     add your own and bind widgets to them with bind_value / bind_checked
-	     / bind_text. -->
+	<!-- Observable model the UI binds to. Add your own and bind widgets with
+	     bind_value / bind_checked / bind_text. -->
 	<subjects>
 		<int name="subject_theme_dark" value="0" min_value="0" max_value="1" help="0 = light theme, 1 = dark theme" />
 		<int
@@ -220,37 +212,6 @@
 			min_value="0"
 			max_value="100"
 			help="Example value (0..100) driven by the demo controls"
-		/>
-		<int
-			name="subject_popup_open"
-			value="0"
-			min_value="0"
-			max_value="1"
-			help="0 = popup closed, 1 = open (dims the screen + shows the demo popup)"
-		/>
-
-		<!-- Contacts screen: bound by the right-hand call/notification panel. -->
-		<int name="subject_ringer_volume" value="60" min_value="0" max_value="100" help="Ringer volume (0..100)" />
-		<int
-			name="subject_ring_duration"
-			value="20"
-			min_value="5"
-			max_value="60"
-			help="Seconds to ring before voicemail"
-		/>
-		<int
-			name="subject_do_not_disturb"
-			value="0"
-			min_value="0"
-			max_value="1"
-			help="0 = notifications on, 1 = do-not-disturb mode"
-		/>
-		<int
-			name="subject_show_photos"
-			value="1"
-			min_value="0"
-			max_value="1"
-			help="0 = name only, 1 = show contact photos"
 		/>
 	</subjects>
 

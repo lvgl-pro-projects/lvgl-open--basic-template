@@ -11,18 +11,14 @@
 		<prop name="radius" type="int" default="#radius" help="Corner radius" />
 	</api>
 
-	<!-- Static geometry. The caption color is inherited by the label child
-	     from the button's $text_color local. -->
 	<styles>
 		<style name="style_button" pad_hor="#space_lg" pad_ver="#space_md" flex_cross_place="center" />
 	</styles>
 
-	<!-- A button with a centered caption. Attach behavior at the use-site as
-	     child events, e.g.:
+	<!-- Button with optional icon + centered caption.
+	     Attach behavior as child events:
 	         <button text="Save"><event_cb callback="on_save" trigger="clicked"/></button>
-	         <button text="Next"><screen_load_event screen="screen_two"/></button>
-	     The $color props are locals so they stack on top of the theme; the
-	     pressed state darkens via recolor. -->
+	     Pressed state darkens via recolor. -->
 	<view
 		extends="lv_button"
 		style_bg_color="$bg_color"

@@ -7,9 +7,6 @@
 		<prop name="text" type="string" default="Heading 1" help="Heading text" />
 	</api>
 
-	<!-- Largest heading: Montserrat Bold 44. No text_color is set, so it
-	     inherits the screen's bound light/dark color and dark mode recolors
-	     it automatically. For a one-off color, set style_text_color at the
-	     use-site, e.g. <h1 text="Hi" style_text_color="#color_accent" />. -->
+	<!-- Largest heading. Text color inherited; override per-use with style_text_color. -->
 	<view extends="lv_label" text="$text" style_text_font="font_h1" />
 </component>

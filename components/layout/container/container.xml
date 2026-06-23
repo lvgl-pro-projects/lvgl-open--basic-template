@@ -1,10 +1,8 @@
 <component>
-	<!-- A transparent, theme-free box for grouping and arranging children
-	     with flexbox. It extends `base_box` (where <remove_style_all/>
-	     runs), so these pad/gap/flow/grow locals are applied AFTER the theme
-	     is stripped and therefore stick. Never set text_color here: leave it
-	     to inherit the screen's light/dark color so dark mode recolors text
-	     for free. Use `panel` instead when you want a visible card surface. -->
+	<!-- Transparent, theme-free flex box for grouping children. Extends
+	     base_box, so these locals apply after remove_style_all and stick.
+	     Never set text_color here — let it inherit for free dark mode.
+	     Use `panel` when you need a visible card surface. -->
 	<api>
 		<prop name="pad" type="int" default="8" help="Inner padding on all sides" />
 		<prop name="gap" type="int" default="0" help="Space between children along the flow direction" />

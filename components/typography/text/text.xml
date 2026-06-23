@@ -3,9 +3,7 @@
 		<prop name="text" type="string" default="Body text" help="The paragraph / body text" />
 	</api>
 
-	<!-- Body copy in Montserrat Regular 16 (font_body, also the inherited
-	     default). No text_color set, so it inherits the screen's bound
-	     light/dark color. long_mode=wrap so the text wraps once it is given a
-	     width at the use-site, e.g. <text text="..." width="100%" />. -->
+	<!-- Body copy. Text color is inherited.
+	     Give it a width to make it wrap: <text text="..." width="100%" /> -->
 	<view extends="lv_label" text="$text" long_mode="wrap" style_text_font="font_body" />
 </component>

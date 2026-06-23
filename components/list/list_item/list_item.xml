@@ -18,8 +18,8 @@
 		<slot name="trailing" />
 	</api>
 
-	<!-- One list row: [icon] title / subtitle [trailing]. Uses the shared
-	     style_list_row (full width + divider) from globals. -->
+	<!-- One list row: [icon] title / subtitle [trailing].
+	     Uses the shared style_list_row (full width + divider) from globals. -->
 	<view extends="container" flow="row" pad="#space_md" gap="#space_md">
 		<style name="style_list_row" />
 

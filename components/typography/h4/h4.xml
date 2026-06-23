@@ -7,8 +7,6 @@
 		<prop name="text" type="string" default="Heading 4" help="Heading text" />
 	</api>
 
-	<!-- Montserrat SemiBold 22. No text_color set, so it inherits the
-	     screen's bound light/dark color. Override per-use with
-	     style_text_color if needed. -->
+	<!-- Heading. Text color inherited; override per-use with style_text_color. -->
 	<view extends="lv_label" text="$text" style_text_font="font_h4" />
 </component>

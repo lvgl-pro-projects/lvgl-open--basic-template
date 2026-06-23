@@ -15,14 +15,12 @@
 		<prop name="color" type="color" default="#color_accent" help="Filled indicator and knob color" />
 	</api>
 
-	<!-- Neutral track on the main part; the fill + knob take $color. -->
 	<styles>
 		<style name="style_slider_track" bg_color="#color_track" bg_opa="#opa_muted" radius="100" />
 		<style name="style_slider_knob" radius="100" pad_all="#space_sm" />
 	</styles>
 
-	<!-- Two-way bound to $subject. Set width at the use-site (e.g.
-	     width="100%") to stretch it. -->
+	<!-- Two-way bound to $subject. Give it a width to stretch it. -->
 	<view
 		extends="lv_slider"
 		width="200"

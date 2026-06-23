@@ -10,9 +10,8 @@
 		<prop name="color" type="color" default="#color_accent" help="Filled indicator color" />
 	</api>
 
-	<!-- A read-only progress bar (no knob, not draggable) following $subject.
-	     Neutral track on the main part; the fill takes $color. Set width at
-	     the use-site. -->
+	<!-- Read-only progress bar following $subject (no knob, not draggable).
+	     Give it a width where you use it. -->
 	<styles>
 		<style name="style_bar_track" bg_color="#color_track" bg_opa="#opa_muted" radius="#radius" />
 	</styles>

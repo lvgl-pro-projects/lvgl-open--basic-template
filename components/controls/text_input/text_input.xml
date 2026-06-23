@@ -9,9 +9,8 @@
 		<prop name="password" type="bool" default="false" help="Mask the characters (password field)" />
 	</api>
 
-	<!-- Single-line text field. Connect a keyboard / read the text from C
-	     via the widget's name set at the use-site. Width is set here to a
-	     sensible default; override at the use-site. -->
+	<!-- Single-line text field. Read its text from C via the name you give it.
+	     Override the default width where you use it. -->
 	<view
 		extends="text_box"
 		one_line="true"

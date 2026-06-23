@@ -15,16 +15,14 @@
 		<prop name="color" type="color" default="#color_accent" help="Indicator and knob color" />
 	</api>
 
-	<!-- Static parts of the arc; the parametrized color goes on as locals. -->
 	<styles>
 		<style name="style_arc_track" arc_width="#space_lg" arc_color="#color_track" arc_opa="35%" arc_rounded="true" />
 		<style name="style_arc_ind" arc_width="#space_lg" arc_rounded="true" />
 		<style name="style_arc_knob" pad_all="#space_md" radius="100" />
 	</styles>
 
-	<!-- The arc reads and writes $subject (drag to change it); $color drives
-	     the indicator + knob. Add a centered <lv_label bind_text="..."> child
-	     at the use-site for a readout. -->
+	<!-- Reads and writes $subject (drag to change it); $color drives the
+	     indicator + knob. Add a centered bound label child for a readout. -->
 	<view
 		extends="lv_arc"
 		width="180"

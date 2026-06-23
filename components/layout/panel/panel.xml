@@ -11,19 +11,14 @@
 		<prop name="grow" type="int" default="0" help="flex_grow when placed in a flex row; NULL = natural size" />
 	</api>
 
-	<!-- Geometry only. The surface (bg + border) comes from globals
-	     (style_panel_light/dark) and is swapped by subject_theme_dark.
-	     No text_color here so panel text inherits from the screen. -->
+	<!-- Geometry only. Surface (bg + border) comes from the globals
+	     style_panel_light/dark pair, swapped by subject_theme_dark. -->
 	<styles>
 		<style name="style_panel" border_width="#border_width" />
 	</styles>
 
-	<!-- extends container => remove_style_all already ran there, so these
-	     local style_* / $prop attributes are safe (applied afterwards).
-	     pad/gap/flow flow straight through to the container. The optional
-	     $bg_color local sits on top of the theme styles, so when it is set
-	     it wins; when NULL it is ignored and the theme color shows. -->
-	<view extends="base_box" pad="$pad" gap="$gap" flow="$flow" grow="$grow">
+	<!-- Visible card surface over a container; pad/gap/flow/grow pass through. -->
+	<view extends="container" pad="$pad" gap="$gap" flow="$flow" grow="$grow">
 		<style name="style_panel_light" />
 		<bind_style name="style_panel_dark" subject="subject_theme_dark" ref_value="1" />
 		<style name="style_panel" />
