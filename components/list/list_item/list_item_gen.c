@@ -83,7 +83,7 @@ lv_obj_t * list_item_create(lv_obj_t * parent, const char * title, const char * 
         lv_obj_add_style(icon_obj, &style_icon_light, 0);
         lv_obj_bind_style(icon_obj, &style_icon_dark, 0, &subject_theme_dark, 1);
 
-        lv_obj_t * container_1 = container_create(container_0, 8, SPACE_XS, LV_FLEX_FLOW_COLUMN, 1);
+        lv_obj_t * container_1 = container_create(container_0, 0, SPACE_XS, LV_FLEX_FLOW_COLUMN, 1);
         lv_obj_set_flag(container_1, LV_OBJ_FLAG_CLICKABLE, false);
         h5_create(container_1, title);
 
@@ -91,7 +91,7 @@ lv_obj_t * list_item_create(lv_obj_t * parent, const char * title, const char * 
         lv_obj_set_flag(text_0, LV_OBJ_FLAG_HIDDEN, !subtitle);
         lv_obj_add_style(text_0, &style_text_muted, 0);
 
-        lv_obj_t * trailing = container_create(container_0, 8, SPACE_SM, LV_FLEX_FLOW_ROW, 0);
+        lv_obj_t * trailing = container_create(container_0, 0, SPACE_SM, LV_FLEX_FLOW_ROW, 0);
         lv_obj_set_name(trailing, "trailing");
 
         the_root = container_0;

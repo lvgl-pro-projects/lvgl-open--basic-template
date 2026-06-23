@@ -60,7 +60,7 @@
 
 			<list width="100%">
 				<list_section text="List" />
-				<list_item title="Simple item" />
+				<list_item title="Simple item" icon="" />
 				<list_item title="Simple item with icon" icon="icon_bell" />
 				<list_item title="Turn me on!" icon="icon_edit">
 					<list_item-trailing>
