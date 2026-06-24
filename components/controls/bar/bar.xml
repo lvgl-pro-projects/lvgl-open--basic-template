@@ -2,7 +2,6 @@
 	<previews>
 		<preview name="default" width="240" style_pad_all="20" />
 	</previews>
-
 	<api>
 		<prop name="subject" type="subject" help="Int subject the bar follows" />
 		<prop name="min" type="int" default="0" help="Lowest value" />

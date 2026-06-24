@@ -6,6 +6,7 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/button/button_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/checkbox/checkbox_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/dropdown/dropdown_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/controls/keyboard/keyboard_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/slider/slider_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/switch/switch_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/text_box/text_box_gen.c
@@ -25,12 +26,13 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/components/typography/h4/h4_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/typography/h5/h5_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/typography/text/text_gen.c
-  ${CMAKE_CURRENT_LIST_DIR}/fonts/font_body__data.c
-  ${CMAKE_CURRENT_LIST_DIR}/fonts/font_h1__data.c
-  ${CMAKE_CURRENT_LIST_DIR}/fonts/font_h2__data.c
-  ${CMAKE_CURRENT_LIST_DIR}/fonts/font_h3__data.c
-  ${CMAKE_CURRENT_LIST_DIR}/fonts/font_h4__data.c
-  ${CMAKE_CURRENT_LIST_DIR}/fonts/font_h5__data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/font_body_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/font_body_symbols_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/font_h1_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/font_h2_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/font_h3_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/font_h4_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/font_h5_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_arrow_down_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_arrow_left_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_arrow_right_data.c

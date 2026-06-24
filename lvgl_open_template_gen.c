@@ -49,18 +49,20 @@ lv_obj_t * screen_components = NULL;
  * Fonts
  *----------------*/
 
+lv_font_t * font_body_symbols;
+extern lv_font_t font_body_symbols_data;
 lv_font_t * font_body;
-extern lv_font_t font_body__data;
+extern lv_font_t font_body_data;
 lv_font_t * font_h5;
-extern lv_font_t font_h5__data;
+extern lv_font_t font_h5_data;
 lv_font_t * font_h4;
-extern lv_font_t font_h4__data;
+extern lv_font_t font_h4_data;
 lv_font_t * font_h3;
-extern lv_font_t font_h3__data;
+extern lv_font_t font_h3_data;
 lv_font_t * font_h2;
-extern lv_font_t font_h2__data;
+extern lv_font_t font_h2_data;
 lv_font_t * font_h1;
-extern lv_font_t font_h1__data;
+extern lv_font_t font_h1_data;
 
 /*----------------
  * Images
@@ -178,6 +180,7 @@ lv_style_t style_scrollbar;
 
 lv_subject_t subject_theme_dark;
 lv_subject_t subject_brightness;
+lv_subject_t subject_show_keyboard;
 
 /**********************
  *      MACROS
@@ -211,40 +214,46 @@ void lvgl_open_template_init_gen(const char * asset_path)
 
     #if LVGL_OPEN_TEMPLATE_CHECK_COMPILE_TARGET(LVGL_OPEN_TEMPLATE_TARGET_ALL)
     if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_ALL)) {
+        if (!font_body_symbols) {
+            /* font_body_symbols */
+            /* get font 'font_body_symbols' from a C array */
+            font_body_symbols = &font_body_symbols_data;
+
+        }
         if (!font_body) {
             /* font_body */
             /* get font 'font_body' from a C array */
-            font_body = &font_body__data;
+            font_body = &font_body_data;
 
         }
         if (!font_h5) {
             /* font_h5 */
             /* get font 'font_h5' from a C array */
-            font_h5 = &font_h5__data;
+            font_h5 = &font_h5_data;
 
         }
         if (!font_h4) {
             /* font_h4 */
             /* get font 'font_h4' from a C array */
-            font_h4 = &font_h4__data;
+            font_h4 = &font_h4_data;
 
         }
         if (!font_h3) {
             /* font_h3 */
             /* get font 'font_h3' from a C array */
-            font_h3 = &font_h3__data;
+            font_h3 = &font_h3_data;
 
         }
         if (!font_h2) {
             /* font_h2 */
             /* get font 'font_h2' from a C array */
-            font_h2 = &font_h2__data;
+            font_h2 = &font_h2_data;
 
         }
         if (!font_h1) {
             /* font_h1 */
             /* get font 'font_h1' from a C array */
-            font_h1 = &font_h1__data;
+            font_h1 = &font_h1_data;
 
         }
     }
@@ -512,6 +521,7 @@ void lvgl_open_template_init_gen(const char * asset_path)
     lv_subject_init_int(&subject_brightness, 60);
     lv_subject_set_min_value_int(&subject_brightness, 0);
     lv_subject_set_max_value_int(&subject_brightness, 100);
+    lv_subject_init_int(&subject_show_keyboard, 0);
 
     /*----------------
      * Translations
@@ -522,6 +532,7 @@ void lvgl_open_template_init_gen(const char * asset_path)
 
     /* Check all fonts / default if needed. This prevents fonts that are used in one target but
        defined in another from causing assertion failures during rendering of the Preview. */
+    check_font(&font_body_symbols, "font_body_symbols");
     check_font(&font_body, "font_body");
     check_font(&font_h5, "font_h5");
     check_font(&font_h4, "font_h4");
@@ -530,6 +541,7 @@ void lvgl_open_template_init_gen(const char * asset_path)
     check_font(&font_h1, "font_h1");
 
     /* Register fonts */
+    lv_xml_register_font(NULL, "font_body_symbols", font_body_symbols);
     lv_xml_register_font(NULL, "font_body", font_body);
     lv_xml_register_font(NULL, "font_h5", font_h5);
     lv_xml_register_font(NULL, "font_h4", font_h4);
@@ -540,6 +552,7 @@ void lvgl_open_template_init_gen(const char * asset_path)
     /* Register subjects */
     lv_xml_register_subject(NULL, "subject_theme_dark", &subject_theme_dark);
     lv_xml_register_subject(NULL, "subject_brightness", &subject_brightness);
+    lv_xml_register_subject(NULL, "subject_show_keyboard", &subject_show_keyboard);
 
     /* Register callbacks */
 #endif

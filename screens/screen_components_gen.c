@@ -106,6 +106,8 @@ lv_obj_t * screen_components_create(void)
 
         lv_obj_t * text_input_0 = text_input_create(panel_3, "", "Single line", false);
         lv_obj_set_width(text_input_0, lv_pct(100));
+        lv_obj_add_subject_set_int_event(text_input_0, &subject_show_keyboard, LV_EVENT_FOCUSED, 1);
+        lv_obj_add_subject_set_int_event(text_input_0, &subject_show_keyboard, LV_EVENT_DEFOCUSED, 0);
 
         lv_obj_t * text_input_1 = text_input_create(panel_3, "", "Password", true);
         lv_obj_set_width(text_input_1, lv_pct(100));
@@ -155,6 +157,14 @@ lv_obj_t * screen_components_create(void)
         list_separator_create(list_0);
 
         list_item_create(list_0, "About", "Version 1.0", icon_info);
+
+        lv_obj_t * keyboard = keyboard_create(lv_obj_0, text_input_0, LV_KEYBOARD_MODE_TEXT_LOWER);
+        lv_obj_set_name(keyboard, "keyboard");
+        lv_obj_set_flag(keyboard, LV_OBJ_FLAG_FLOATING, true);
+        lv_obj_set_align(keyboard, LV_ALIGN_BOTTOM_MID);
+        lv_obj_bind_flag_if_eq(keyboard, &subject_show_keyboard, LV_OBJ_FLAG_HIDDEN, 0);
+        lv_obj_add_subject_set_int_event(keyboard, &subject_show_keyboard, LV_EVENT_CANCEL, 0);
+        lv_obj_add_subject_set_int_event(keyboard, &subject_show_keyboard, LV_EVENT_READY, 0);
 
         the_root = lv_obj_0;
     }

@@ -265,6 +265,7 @@ extern lv_style_t style_scrollbar;
  *----------------*/
 
 /* Targets: any */
+extern lv_font_t * font_body_symbols;
 extern lv_font_t * font_body;
 extern lv_font_t * font_h5;
 extern lv_font_t * font_h4;
@@ -331,6 +332,7 @@ extern const void * icon_wifi_zero;
 
 extern lv_subject_t subject_theme_dark;
 extern lv_subject_t subject_brightness;
+extern lv_subject_t subject_show_keyboard;
 
 /**********************
  * GLOBAL PROTOTYPES
@@ -360,6 +362,7 @@ void lvgl_open_template_init_gen(const char * asset_path);
 #include "components/controls/button/button_gen.h"
 #include "components/controls/checkbox/checkbox_gen.h"
 #include "components/controls/dropdown/dropdown_gen.h"
+#include "components/controls/keyboard/keyboard_gen.h"
 #include "components/controls/slider/slider_gen.h"
 #include "components/controls/switch/switch_gen.h"
 #include "components/controls/text_box/text_box_gen.h"
