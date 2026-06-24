@@ -9,17 +9,17 @@
 
 	<!-- Design tokens. Reference as #name so one edit re-tunes the whole UI.
 	     Per-target blocks scale spacing/shape to the display size. -->
-		<!-- Spacing scale: use these instead of raw pixel paddings/gaps -->
+	<!-- Spacing scale: use these instead of raw pixel paddings/gaps -->
 	<consts>
-		<int name="space_xs" value="4" help="Smallest spacing/padding unit" />
-		<int name="space_sm" value="8" help="Small spacing/padding unit" />
-		<int name="space_md" value="16" help="Default spacing/padding unit" />
-		<int name="space_lg" value="24" help="Large spacing/padding unit" />
-		<int name="space_xl" value="40" help="Extra-large spacing/padding unit" />
+		<int name="space_xs" value="2" help="Smallest spacing/padding unit" />
+		<int name="space_sm" value="4" help="Small spacing/padding unit" />
+		<int name="space_md" value="8" help="Default spacing/padding unit" />
+		<int name="space_lg" value="16" help="Large spacing/padding unit" />
+		<int name="space_xl" value="32" help="Extra-large spacing/padding unit" />
 
 		<!-- Shape -->
-		<int name="radius" value="16" help="Default corner radius" />
-		<int name="border_width" value="2" help="Default border width" />
+		<int name="radius" value="12" help="Default corner radius" />
+		<int name="border_width" value="1" help="Default border width" />
 
 		<int name="icon_size" value="16" help="Default icon size" />
 		<opa name="opa_muted" value="35%" help="Used to dim down contant" />
@@ -54,7 +54,6 @@
 			src_path="fonts/FontAwesome5.ttf"
 			bpp="4"
 			range="0xF00C,0xF00D,0xF053-0xF054,0xF077-0xF078,0xF11C,0xF55A,0xF8A2"
-			lv_fallback="font_body"
 			as_file="false"
 		/>
 
@@ -66,7 +65,7 @@
 			range="0x20-0x7F"
 			symbols="°—•"
 			as_file="false"
-			lv_fallback="font_body_symbols"
+			lv_fallback="font_body_symbols_data"
 		/>
 		<bin
 			name="font_h5"

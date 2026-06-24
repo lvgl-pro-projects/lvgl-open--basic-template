@@ -53,6 +53,8 @@
 		height="50%"
 		align="bottom_mid"
 		style_pad_gap="#space_xs"
+		style_pad_all="#space_md"
+		style_radius="0"
 	>
 		<!-- Background surface -->
 		<style name="style_panel_light" />

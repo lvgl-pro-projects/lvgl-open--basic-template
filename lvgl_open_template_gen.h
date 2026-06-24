@@ -42,9 +42,7 @@ bool lvgl_open_template_check_target(uint32_t target);
  *********************/
 
 #define LVGL_OPEN_TEMPLATE_TARGET_UNDEFINED  (0 << 1)
-#define LVGL_OPEN_TEMPLATE_TARGET_SMALL      (1 << 1)
-#define LVGL_OPEN_TEMPLATE_TARGET_MEDIUM     (1 << 2)
-#define LVGL_OPEN_TEMPLATE_TARGET_LARGE      (1 << 3)
+#define LVGL_OPEN_TEMPLATE_TARGET_TARGET1    (1 << 1)
 #define LVGL_OPEN_TEMPLATE_TARGET_ALL        0x0FFFFFFF
 
 /* By default compile for all targets, allowing to switch to any targets at runtime */
@@ -54,132 +52,34 @@ bool lvgl_open_template_check_target(uint32_t target);
 
 #define LVGL_OPEN_TEMPLATE_CHECK_COMPILE_TARGET(target) (LVGL_OPEN_TEMPLATE_COMPILE_TARGET & (target) ? 1 : 0)
 
-static inline int32_t space_xs() {
-    /**
-     * Smallest spacing/padding unit
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 4;
-    /**
-     * Smallest spacing/padding unit
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_MEDIUM)) return 4;
-    /**
-     * Smallest spacing/padding unit
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_LARGE)) return 6;
-
-    return 0;
-}
-
-#define SPACE_XS space_xs()
-static inline int32_t space_sm() {
-    /**
-     * Small spacing/padding unit
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 6;
-    /**
-     * Small spacing/padding unit
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_MEDIUM)) return 8;
-    /**
-     * Small spacing/padding unit
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_LARGE)) return 12;
-
-    return 0;
-}
-
-#define SPACE_SM space_sm()
-static inline int32_t space_md() {
-    /**
-     * Default spacing/padding unit
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 10;
-    /**
-     * Default spacing/padding unit
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_MEDIUM)) return 16;
-    /**
-     * Default spacing/padding unit
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_LARGE)) return 24;
-
-    return 0;
-}
-
-#define SPACE_MD space_md()
-static inline int32_t space_lg() {
-    /**
-     * Large spacing/padding unit
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 16;
-    /**
-     * Large spacing/padding unit
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_MEDIUM)) return 24;
-    /**
-     * Large spacing/padding unit
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_LARGE)) return 32;
-
-    return 0;
-}
-
-#define SPACE_LG space_lg()
-static inline int32_t space_xl() {
-    /**
-     * Extra-large spacing/padding unit
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 22;
-    /**
-     * Extra-large spacing/padding unit
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_MEDIUM)) return 40;
-    /**
-     * Extra-large spacing/padding unit
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_LARGE)) return 60;
-
-    return 0;
-}
-
-#define SPACE_XL space_xl()
-static inline int32_t radius() {
-    /**
-     * Default corner radius
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 8;
-    /**
-     * Default corner radius
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_MEDIUM)) return 16;
-    /**
-     * Default corner radius
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_LARGE)) return 24;
-
-    return 0;
-}
-
-#define RADIUS radius()
-static inline int32_t border_width() {
-    /**
-     * Default border width
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_SMALL)) return 1;
-    /**
-     * Default border width
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_MEDIUM)) return 2;
-    /**
-     * Default border width
-     */
-    if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_LARGE)) return 3;
-
-    return 0;
-}
-
-#define BORDER_WIDTH border_width()
+/**
+ * Smallest spacing/padding unit
+ */
+#define SPACE_XS 2
+/**
+ * Small spacing/padding unit
+ */
+#define SPACE_SM 4
+/**
+ * Default spacing/padding unit
+ */
+#define SPACE_MD 8
+/**
+ * Large spacing/padding unit
+ */
+#define SPACE_LG 16
+/**
+ * Extra-large spacing/padding unit
+ */
+#define SPACE_XL 32
+/**
+ * Default corner radius
+ */
+#define RADIUS 12
+/**
+ * Default border width
+ */
+#define BORDER_WIDTH 1
 /**
  * Default icon size
  */

@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Size: 16 px
  * Bpp: 4
- * Opts: --font /fonts/FontAwesome5.ttf -o /fonts/font_body_symbols_data.c --size 16 --bpp 4 --format lvgl --no-compress --range 0xF00C,0xF00D,0xF053-0xF054,0xF077-0xF078,0xF11C,0xF55A,0xF8A2 --lv-fallback font_body
+ * Opts: --font /fonts/FontAwesome5.ttf -o /fonts/font_body_symbols_data.c --size 16 --bpp 4 --format lvgl --no-compress --range 0xF00C,0xF00D,0xF053-0xF054,0xF077-0xF078,0xF11C,0xF55A,0xF8A2
  ******************************************************************************/
 
 #ifdef __has_include
@@ -215,7 +215,6 @@ static lv_font_fmt_txt_dsc_t font_dsc = {
 
 };
 
-extern const lv_font_t font_body;
 
 
 /*-----------------
@@ -246,7 +245,7 @@ lv_font_t font_body_symbols_data = {
 
     .dsc = &font_dsc,          /*The custom font data. Will be accessed by `get_glyph_bitmap/dsc` */
 #if LV_VERSION_CHECK(8, 2, 0) || LVGL_VERSION_MAJOR >= 9
-    .fallback = &font_body,
+    .fallback = NULL,
 #endif
     .user_data = NULL,
 };

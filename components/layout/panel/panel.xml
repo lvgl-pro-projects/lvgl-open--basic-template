@@ -5,8 +5,8 @@
 	</previews>
 
 	<api>
-		<prop name="pad" type="int" default="#space_md" help="Inner padding on all sides" />
-		<prop name="gap" type="int" default="#space_sm" help="Space between children along the flow direction" />
+		<prop name="pad" type="int" default="#space_lg" help="Inner padding on all sides" />
+		<prop name="gap" type="int" default="#space_md" help="Space between children along the flow direction" />
 		<prop name="flow" type="enum:lv_flex_flow" default="column" help="Child layout direction: column or row" />
 		<prop name="grow" type="int" default="0" help="flex_grow when placed in a flex row; NULL = natural size" />
 	</api>

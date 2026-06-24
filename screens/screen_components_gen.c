@@ -58,7 +58,7 @@ lv_obj_t * screen_components_create(void)
 
         switch_create(row_0, &subject_theme_dark, COLOR_ACCENT);
 
-        lv_obj_t * panel_0 = panel_create(content, SPACE_MD, SPACE_LG, LV_FLEX_FLOW_COLUMN, 0);
+        lv_obj_t * panel_0 = panel_create(content, SPACE_LG, SPACE_LG, LV_FLEX_FLOW_COLUMN, 0);
         lv_obj_set_width(panel_0, lv_pct(100));
         h1_create(panel_0, "Heading 1");
 
@@ -73,7 +73,7 @@ lv_obj_t * screen_components_create(void)
         lv_obj_t * text_0 = text_create(panel_0, "Body text. Give it a width and it wraps across the panel.");
         lv_obj_set_width(text_0, lv_pct(100));
 
-        lv_obj_t * panel_1 = panel_create(content, SPACE_MD, SPACE_LG, LV_FLEX_FLOW_COLUMN, 0);
+        lv_obj_t * panel_1 = panel_create(content, SPACE_LG, SPACE_LG, LV_FLEX_FLOW_COLUMN, 0);
         lv_obj_set_width(panel_1, lv_pct(100));
         h4_create(panel_1, "Buttons");
 
@@ -84,7 +84,7 @@ lv_obj_t * screen_components_create(void)
 
         button_create(row_1, "Delete", icon_trash, COLOR_DANGER, COLOR_ACCENT_TEXT, RADIUS);
 
-        lv_obj_t * panel_2 = panel_create(content, SPACE_MD, SPACE_LG, LV_FLEX_FLOW_COLUMN, 0);
+        lv_obj_t * panel_2 = panel_create(content, SPACE_LG, SPACE_LG, LV_FLEX_FLOW_COLUMN, 0);
         lv_obj_set_width(panel_2, lv_pct(100));
         h4_create(panel_2, "Controls");
 
@@ -100,22 +100,23 @@ lv_obj_t * screen_components_create(void)
         lv_label_bind_text(lv_label_0, &subject_brightness, "%d%%");
         lv_obj_set_style_text_color(lv_label_0, COLOR_ACCENT, 0);
 
-        lv_obj_t * panel_3 = panel_create(content, SPACE_MD, SPACE_LG, LV_FLEX_FLOW_COLUMN, 0);
+        lv_obj_t * panel_3 = panel_create(content, SPACE_LG, SPACE_LG, LV_FLEX_FLOW_COLUMN, 0);
         lv_obj_set_width(panel_3, lv_pct(100));
         h4_create(panel_3, "Text inputs");
 
-        lv_obj_t * text_input_0 = text_input_create(panel_3, "", "Single line", false);
-        lv_obj_set_width(text_input_0, lv_pct(100));
-        lv_obj_add_subject_set_int_event(text_input_0, &subject_show_keyboard, LV_EVENT_FOCUSED, 1);
-        lv_obj_add_subject_set_int_event(text_input_0, &subject_show_keyboard, LV_EVENT_DEFOCUSED, 0);
+        lv_obj_t * text_innput_user_name = text_input_create(panel_3, "", "Single line", false);
+        lv_obj_set_name(text_innput_user_name, "text_innput_user_name");
+        lv_obj_set_width(text_innput_user_name, lv_pct(100));
+        lv_obj_add_subject_set_int_event(text_innput_user_name, &subject_show_keyboard, LV_EVENT_FOCUSED, 1);
+        lv_obj_add_subject_set_int_event(text_innput_user_name, &subject_show_keyboard, LV_EVENT_DEFOCUSED, 0);
 
-        lv_obj_t * text_input_1 = text_input_create(panel_3, "", "Password", true);
-        lv_obj_set_width(text_input_1, lv_pct(100));
+        lv_obj_t * text_input_0 = text_input_create(panel_3, "", "Password", true);
+        lv_obj_set_width(text_input_0, lv_pct(100));
 
         lv_obj_t * text_box_0 = text_box_create(panel_3, "", "Multi-line text box");
         lv_obj_set_width(text_box_0, lv_pct(100));
 
-        lv_obj_t * panel_4 = panel_create(content, SPACE_MD, SPACE_LG, LV_FLEX_FLOW_COLUMN, 0);
+        lv_obj_t * panel_4 = panel_create(content, SPACE_LG, SPACE_LG, LV_FLEX_FLOW_COLUMN, 0);
         lv_obj_set_width(panel_4, lv_pct(100));
         h4_create(panel_4, "Selection");
 
@@ -158,7 +159,7 @@ lv_obj_t * screen_components_create(void)
 
         list_item_create(list_0, "About", "Version 1.0", icon_info);
 
-        lv_obj_t * keyboard = keyboard_create(lv_obj_0, text_input_0, LV_KEYBOARD_MODE_TEXT_LOWER);
+        lv_obj_t * keyboard = keyboard_create(lv_obj_0, text_innput_user_name, LV_KEYBOARD_MODE_TEXT_LOWER);
         lv_obj_set_name(keyboard, "keyboard");
         lv_obj_set_flag(keyboard, LV_OBJ_FLAG_FLOATING, true);
         lv_obj_set_align(keyboard, LV_ALIGN_BOTTOM_MID);

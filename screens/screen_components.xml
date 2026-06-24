@@ -45,7 +45,7 @@
 
 			<panel width="100%" gap="#space_lg">
 				<h4 text="Text inputs" />
-				<text_input placeholder="Single line" width="100%">
+				<text_input name="text_innput_user_name" placeholder="Single line" width="100%">
 					<subject_set_int_event subject="subject_show_keyboard" trigger="focused" value="1" />
 					<subject_set_int_event subject="subject_show_keyboard" trigger="defocused" value="0" />
 				</text_input>
@@ -81,7 +81,7 @@
 				<list_item title="About" subtitle="Version 1.0" icon="icon_info" />
 			</list>
 		</column>
-		<keyboard name="keyboard" textarea="text_input_0" floating="true" align="bottom_mid">
+		<keyboard name="keyboard" textarea="text_innput_user_name" floating="true" align="bottom_mid">
 			<bind_flag_if_eq flag="hidden" subject="subject_show_keyboard" ref_value="0" />
 			<subject_set_int_event trigger="cancel" value="0" subject="subject_show_keyboard" />
 			<subject_set_int_event trigger="ready" value="0" subject="subject_show_keyboard" />

@@ -1,7 +1,7 @@
 /*******************************************************************************
  * Size: 16 px
  * Bpp: 4
- * Opts: --font /fonts/Montserrat-Regular.ttf -o /fonts/font_body_data.c --size 16 --bpp 4 --format lvgl --no-compress --symbols °—• --range 0x20-0x7F --lv-fallback font_body_symbols
+ * Opts: --font /fonts/Montserrat-Regular.ttf -o /fonts/font_body_data.c --size 16 --bpp 4 --format lvgl --no-compress --symbols °—• --range 0x20-0x7F --lv-fallback font_body_symbols_data
  ******************************************************************************/
 
 #ifdef __has_include
@@ -1130,7 +1130,7 @@ static lv_font_fmt_txt_dsc_t font_dsc = {
 
 };
 
-extern const lv_font_t font_body_symbols;
+extern const lv_font_t font_body_symbols_data;
 
 
 /*-----------------
@@ -1161,7 +1161,7 @@ lv_font_t font_body_data = {
 
     .dsc = &font_dsc,          /*The custom font data. Will be accessed by `get_glyph_bitmap/dsc` */
 #if LV_VERSION_CHECK(8, 2, 0) || LVGL_VERSION_MAJOR >= 9
-    .fallback = &font_body_symbols,
+    .fallback = &font_body_symbols_data,
 #endif
     .user_data = NULL,
 };
