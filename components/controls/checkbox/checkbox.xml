@@ -13,7 +13,7 @@
 		<!-- Outline box; fills with the accent color once checked. -->
 		<style
 			name="style_box"
-			radius="#space_xs"
+			radius="#space_sm"
 			border_width="#border_width"
 			border_color="#color_track"
 			bg_opa="0%"

@@ -8,8 +8,6 @@
 /* Built only by sim/CMakeLists.txt; lets a glob-based embedded build skip it. */
 #ifdef LVGL_PRO_SIMULATOR_BUILD
 
-#include "lvgl_open_template_gen.h"
-#include "screens/screen_components_gen.h"
 #include "lvgl.h"
 #include "hal.h"
 #include UI_HEADER   /* exported UI library: header, UI_INIT and size come from
@@ -26,8 +24,9 @@ int main(void)
     hal_init(UI_WIDTH, UI_HEIGHT);
     UI_INIT("A:");      /* "A:" = file-system drive for file-based assets */
 
-    /* Load a screen from your project, e.g.:
-     *     lv_screen_load(my_screen_create()); */
+    /* Load a screen from your project */
+
+    lv_screen_load(screen_components_create()); 
 
     lv_unlock();
 

@@ -1,70 +1,45 @@
-# LVGL Open — XML project template
+# LVGL Pro — Project Template
 
-A small, opinionated starting point for an LVGL Pro / Open XML UI. It ships a
-tiny **design system**, a set of thin **component wrappers** with a minimal
-API, and **two example screens** wired together with navigation and data
-binding. Target display: **800 × 480**, `lvgl_version` 9.5.0.
+A ready-to-use starting point for a new **LVGL Pro** project. Instead of an empty
+folder, you get a small **design system**, a set of reusable **components**, and an
+example screen — already wired up so you can start building your own UI right away.
 
-## Layout
+Target display: **480 × 320**, `lvgl_version` 9.5.0.
 
-```
-project.xml              one 800x480 target
-globals.xml              the design system: consts, fonts, styles, subjects
-components/
-  layout/   base_box · container · panel
-  typography/ h1 h2 h3 h4 h5 · text
-  controls/ button · arc · slider · bar · toggle · text_input · text_box
-screens/  screen_home (permanent) · screen_settings (created on demand)
-fonts/    Montserrat Regular/Medium/SemiBold/Bold (compiled in)
-```
+## What's inside
 
-## Design system (`globals.xml`)
+- `globals.xml` — the design system: spacing/shape constants, colors, fonts, styles,
+  and the subjects the UI binds to (theme, brightness, …)
+- `components/` — thin, reusable wrappers with a minimal API:
+  - `layout/` — `base_box`, `container`, `panel`, `row`, `column`
+  - `typography/` — `h1`…`h5`, `text`
+  - `controls/` — `button`, `slider`, `arc`, `bar`, `switch`, `checkbox`,
+    `dropdown`, `text_input`, `text_box`, `keyboard`
+  - `list/` — `list`, `list_item`, `list_section`, `list_separator`
+- `screens/` — `screen_components`, a demo screen showing the components in use
+- `fonts/` — Montserrat (Regular/Medium/SemiBold/Bold), compiled in
 
-- **Spacing** `#space_xs … #space_xl`, **shape** `#radius`, `#border_width`.
-- **Colors** light/dark `#color_*_bg|panel|text`, plus `#color_accent`,
-  `#color_accent_text`, `#color_danger`, `#color_track`.
-- **Fonts** Montserrat: `font_body` (16) and `font_h5…font_h1` (18→44),
-  in Regular/Medium/SemiBold/Bold. `font_body` is the inherited default.
-- **Subjects** (the observable model the UI binds to):
-  - `subject_theme_dark` — `0` light / `1` dark.
-  - `subject_brightness` — `0…100`, driven by the demo controls.
+## Where to start
 
-## How theming works (read this before editing layout)
+Open **`screens/screen_components.xml`** to see the components in action, then look at
+**`globals.xml`** to understand the design system everything is built on. Edit the XML,
+add your own screens and components, and watch the result live in the built-in simulator.
 
-The screen root sets `text_color` + `text_font` through a **bound** light/dark
-style. `base_box` runs `remove_style_all` once, so every `container`/`panel`
-is theme-free and **inherits** that color. Result: flipping
-`subject_theme_dark` recolors the whole screen at once.
+## Export, Compile, Run
 
-So: build boxes with `container`/`panel`, and **don't set `text_color`** on
-them — let it inherit. Set a color only as a deliberate one-off
-(`style_text_color="…"` at the use-site).
+- **Ctrl+B or Hammer icon** exports C code from XML and recompiles the custom C code. The first time, the Editor installs
+  **emsdk** to compile your C to **WASM** that the Editor can run in the preview. The exported C code is ready
+  to be integrated in your application. See the [Integration guide](https://lvgl.io/docs/pro/integration/using-exported-c-code)
 
-## Components
+- **F5** (or **Run / Start Debugging**) launches the built-in simulator in a new window so you can
+  run and debug the C code. See [`sim/README.md`](sim/README.md) for how the simulator works and how
+  to build it from the command line.
 
-Each exposes only a few props; everything else comes from the design system.
+## Design mode
 
-| Component | Key props |
-|---|---|
-| `container` | `pad` `gap` `flow`(column/row) `grow` |
-| `panel` | `pad` `gap` `flow` `radius` `grow` |
-| `h1`…`h5`, `text` | `text` |
-| `button` | `text` `bg_color` `text_color` `radius` — attach `<event_cb>` / `<screen_*_event>` as children |
-| `arc`, `slider` | `subject` `min` `max` `color` (two-way bound, draggable) |
-| `bar` | `subject` `min` `max` `color` (read-only) |
-| `toggle` | `subject` (0/1) `color` |
-| `text_input` | `text` `placeholder` `password` (single line) |
-| `text_box` | `text` `placeholder` (multi line) |
+Switch to **Design mode** from the top header to lay out screens visually with
+**drag-and-drop** editing instead of writing XML by hand.
 
-Set size/position at the use-site, e.g. `<slider subject="subject_brightness" width="100%" />`.
+## Docs
 
-## Build / preview
-
-```bash
-lved validate .        # syntax + reference check
-lved generate .        # emit C (screens, components, fonts)
-lved compile . --target node   # build (needs a toolchain: container or local-emsdk)
-```
-
-`lved` = the LVGL editor CLI. You can also open this folder in the LVGL editor
-to preview and edit visually.
+Full documentation: **<https://lvgl.io/docs/pro>**
