@@ -52,7 +52,7 @@ lv_obj_t * screen_components_create(void)
         lv_obj_set_height(content, LV_SIZE_CONTENT);
         lv_obj_t * row_0 = row_create(content, 0, SPACE_MD, 0, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_START);
         lv_obj_set_width(row_0, lv_pct(100));
-        h5_create(row_0, "Dark theme");
+        h5_create(row_0, "Heading 5", "dark_theme");
 
         container_create(row_0, 8, 0, LV_FLEX_FLOW_COLUMN, 1);
 
@@ -66,16 +66,16 @@ lv_obj_t * screen_components_create(void)
 
         h3_create(panel_0, "Heading 3");
 
-        h4_create(panel_0, "Heading 4");
+        h4_create(panel_0, "Heading 4", "");
 
-        h5_create(panel_0, "Heading 5");
+        h5_create(panel_0, "Heading 5", "");
 
         lv_obj_t * text_0 = text_create(panel_0, "Body text. Give it a width and it wraps across the panel.");
         lv_obj_set_width(text_0, lv_pct(100));
 
         lv_obj_t * panel_1 = panel_create(content, SPACE_LG, SPACE_LG, LV_FLEX_FLOW_COLUMN, 0);
         lv_obj_set_width(panel_1, lv_pct(100));
-        h4_create(panel_1, "Buttons");
+        h4_create(panel_1, "Heading 4", "buttons");
 
         lv_obj_t * row_1 = row_create(panel_1, 0, SPACE_SM, 0, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START);
         button_create(row_1, "Primary", NULL, COLOR_ACCENT, COLOR_ACCENT_TEXT, RADIUS);
@@ -86,7 +86,7 @@ lv_obj_t * screen_components_create(void)
 
         lv_obj_t * panel_2 = panel_create(content, SPACE_LG, SPACE_LG, LV_FLEX_FLOW_COLUMN, 0);
         lv_obj_set_width(panel_2, lv_pct(100));
-        h4_create(panel_2, "Controls");
+        h4_create(panel_2, "Heading 4", "controls");
 
         lv_obj_t * slider_0 = slider_create(panel_2, &subject_brightness, 0, 100, COLOR_ACCENT);
         lv_obj_set_width(slider_0, lv_pct(100));
@@ -102,7 +102,7 @@ lv_obj_t * screen_components_create(void)
 
         lv_obj_t * panel_3 = panel_create(content, SPACE_LG, SPACE_LG, LV_FLEX_FLOW_COLUMN, 0);
         lv_obj_set_width(panel_3, lv_pct(100));
-        h4_create(panel_3, "Text inputs");
+        h4_create(panel_3, "Heading 4", "text_inputs");
 
         lv_obj_t * text_innput_user_name = text_input_create(panel_3, "", "Single line", false);
         lv_obj_set_name(text_innput_user_name, "text_innput_user_name");
@@ -118,7 +118,7 @@ lv_obj_t * screen_components_create(void)
 
         lv_obj_t * panel_4 = panel_create(content, SPACE_LG, SPACE_LG, LV_FLEX_FLOW_COLUMN, 0);
         lv_obj_set_width(panel_4, lv_pct(100));
-        h4_create(panel_4, "Selection");
+        h4_create(panel_4, "Heading 4", "selection");
 
         lv_obj_t * dropdown_0 = dropdown_create(panel_4, "Low\nMedium\nHigh", 0, &subject_brightness);
         lv_obj_set_width(dropdown_0, lv_pct(100));

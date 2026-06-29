@@ -35,6 +35,18 @@ static uint32_t lvgl_open_template_target = LVGL_OPEN_TEMPLATE_TARGET_ALL;
  * Translations
  *----------------*/
 
+#ifndef LV_EDITOR_PREVIEW
+    static const char * translation_languages[] = {"en", "de", "es", NULL};
+    static const char * translation_tags[] = {"dark_theme", "buttons", "controls", "text_inputs", "selection", NULL};
+    static const char * translation_texts[] = {
+        "Dark theme", "Dunkles Design", "Tema oscuro", /* dark_theme */
+        "Buttons", "Tasten", "Botones", /* buttons */
+        "Controls", "Steuerelemente", "Controles", /* controls */
+        "Text inputs", "Texteingaben", "Campos de texto", /* text_inputs */
+        "Selection", "Auswahl", "Seleccion", /* selection */
+    };
+#endif
+
 /**********************
  *  GLOBAL VARIABLES
  **********************/
@@ -526,6 +538,10 @@ void lvgl_open_template_init_gen(const char * asset_path)
     /*----------------
      * Translations
      *----------------*/
+
+    #ifndef LV_EDITOR_PREVIEW
+        lv_translation_add_static(translation_languages, translation_tags, translation_texts);
+    #endif
 
 #if LV_USE_XML
     /* Register widgets */

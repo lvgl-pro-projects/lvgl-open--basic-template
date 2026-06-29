@@ -6,7 +6,7 @@
 
 		<column name="content" width="100%" height="content" pad="#space_lg" gap="#space_md">
 			<row width="100%" gap="#space_md" vertical_align="center">
-				<h5 text="Dark theme" />
+				<h5 translation_tag="dark_theme" />
 				<container grow="1" />
 				<switch subject="subject_theme_dark" />
 			</row>
@@ -21,7 +21,7 @@
 			</panel>
 
 			<panel width="100%" gap="#space_lg">
-				<h4 text="Buttons" />
+				<h4 translation_tag="buttons" />
 				<row gap="#space_sm">
 					<button text="Primary" />
 					<button text="Add" icon="icon_plus" />
@@ -30,7 +30,7 @@
 			</panel>
 
 			<panel width="100%" gap="#space_lg">
-				<h4 text="Controls" />
+				<h4 translation_tag="controls" />
 				<slider subject="subject_brightness" width="100%" />
 				<bar subject="subject_brightness" width="100%" />
 				<arc subject="subject_brightness">
@@ -44,7 +44,7 @@
 			</panel>
 
 			<panel width="100%" gap="#space_lg">
-				<h4 text="Text inputs" />
+				<h4 translation_tag="text_inputs" />
 				<text_input name="text_innput_user_name" placeholder="Single line" width="100%">
 					<subject_set_int_event subject="subject_show_keyboard" trigger="focused" value="1" />
 					<subject_set_int_event subject="subject_show_keyboard" trigger="defocused" value="0" />
@@ -54,7 +54,7 @@
 			</panel>
 
 			<panel width="100%" gap="#space_lg">
-				<h4 text="Selection" />
+				<h4 translation_tag="selection" />
 				<dropdown options="Low&#10;Medium&#10;High" width="100%" subject="subject_brightness" />
 				<checkbox text="Enable feature" subject="subject_brightness" />
 				<checkbox text="Subscribe" subject="subject_brightness" />

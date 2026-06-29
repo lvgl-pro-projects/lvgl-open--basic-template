@@ -43,7 +43,7 @@ lv_obj_t * checkbox_create(lv_obj_t * parent, const char * text, lv_subject_t * 
         #if LVGL_OPEN_TEMPLATE_CHECK_COMPILE_TARGET(LVGL_OPEN_TEMPLATE_TARGET_ALL)
         if (lvgl_open_template_check_target(LVGL_OPEN_TEMPLATE_TARGET_ALL)) {
             lv_style_init(&style_box);
-            lv_style_set_radius(&style_box, SPACE_XS);
+            lv_style_set_radius(&style_box, SPACE_SM);
             lv_style_set_border_width(&style_box, BORDER_WIDTH);
             lv_style_set_border_color(&style_box, COLOR_TRACK);
             lv_style_set_bg_opa(&style_box, (255 * 0 / 100));
